@@ -1,0 +1,7 @@
+div#wrapper{margin:5em 0 0 7em;width:61em;}
+div#container{float:left;margin:0 0 0 -20em;width:100%;}
+div#content{margin:0 0 0 20em;}
+div.sidebar{float:right;overflow:hidden;width:17.5em;border-left: 0.1em solid #ccd0d6;padding-left: 2.4em;}
+div#primary{padding-top: 1em;margin-top:1em;}
+div#secondary{clear:right;}
+div#footer{clear:both;width:100%;}
