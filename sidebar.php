@@ -13,7 +13,7 @@
 <?php global $wpdb, $comments, $comment;
 $comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comment_ID, comment_post_ID, SUBSTRING(comment_content,1,65) AS comment_excerpt FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) WHERE comment_approved = '1' AND comment_type = '' AND post_password = '' ORDER BY comment_date_gmt DESC LIMIT 5"); ?>
 			<li id="blogtxt-recent-comments">
-				<h3><?php _e('Recent Comments', 'simplr') ?></h3>
+				<h3><?php _e('Recent Comments', 'blogtxt') ?></h3>
 				<ul id="recentcomments"><?php
 				if ( $comments ) : foreach ($comments as $comment) :
 				echo  '<li class="recentcomments">' . sprintf(__('<span class="comment-author vcard">%1$s</span> <span class="comment-entry-title">on <cite title="%2$s">%2$s</cite></span> <blockquote class="comment-summary" cite="%3$s" title="Comment on %2$s">%4$s &hellip;</blockquote>'),

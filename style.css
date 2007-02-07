@@ -6,36 +6,37 @@ VERSION: 3.0 RC0
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
 */
-@import url('layouts/2c-r.css');
 a,a:link{outline:none;text-decoration:none;}
 div#header a,div#header a:link{color:#0d1117;}
-div.hfeed a,div.hentry a:link{border-bottom:1px solid #9aa1ae;color:#34425b;}
+div.hfeed a,div.hfeed a:link{border-bottom:1px solid #9aa1ae;color:#34425b;}
 div.hfeed .entry-title a,div.hfeed .entry-title a:link,div.hfeed div.entry-meta a,div.hfeed div.entry-meta a:link{border-bottom:none;}
 div.sidebar a,div.sidebar a:link{background:#fff;border-bottom:1px solid #ccd0d6;color:#34425b;}
 div#footer a,div#footer a:link{border-bottom: 1px solid #ccd0d6;color: #9aa1ae;}
+div.hfeed a:visited{color:#677284;}
+div.hfeed .entry-title a:visited{color:#34425b;}
 div#header a:hover{color:#9aa1ae;}
 div#footer a:hover{border-bottom: 1px solid #34425b;color: #34425b;}
-div.hfeed a:hover,div.hfeed div.entry-meta a:hover,div.sidebar a:hover{border-bottom:1px solid #0d1117;color:#0d1117;}
-body{background:#fff;color:#222;font:80%/140% georgia,times,serif;margin:0 0 2em;padding:0;}
+div.hfeed a:hover,div.hfeed .entry-title a:hover,div.hfeed div.entry-meta a:hover,div.sidebar a:hover{border-bottom:1px solid #0d1117;color:#0d1117;}
+div.hfeed a:active,div.sidebar a:active{color:#677284;border-bottom:1px solid #b4b9c3;}
+body{background:#fff;color:#222;line-height:140%;margin:0 0 2em;padding:0;}
 body abbr.published,body abbr.comment-published{border:none;}
 body img{border:none;max-width:99%;}
-body input#s{background:#f6f6f7;border:1px solid #9ca1a8;font:1em/normal verdana,geneva,sans-serif;padding:0.3em 0.2em;}
+body input#s{background:#f6f6f7;border:1px solid #9ca1a8;font-size:1em;line-height:normal;padding:0.3em 0.2em;}
 body.author div.hfeed div.archive-meta p{color:#555;font-size:0.9em;margin:0;}
 body.single div.navigation{margin:4em 0 0;}
 div#footer{color:#9aa1ae;font-size:0.9em;padding:6em 0 0;}
 div#globalnav,div.access,div#footer span#theme-link span.additional-name,div#footer span#theme-link span.family-name{display:none;}
-div#header{margin:0 0 0 -0.9em;padding:0.2em 0 0;}
 div#header a{text-decoration:none;}
-div#header div#blog-description,div#header div.archive-description{font:1.1em/133% arial,helvetica,sans-serif;margin:0.2em 0 0 0.9em;}
-div#header h1#blog-title{border-bottom:0.1em solid #ccd0d6;font:normal 4em/64% "times new roman",times,serif;letter-spacing:1px;margin:0;padding:0 0 0 0.2em;text-transform:uppercase;}
+div#header div#blog-description,div#header div.archive-description{font-size:1.1em;line-height:133%;}
+div#header h1#blog-title{border-bottom:0.1em solid #ccd0d6;font-weight:normal;font-size:4em;line-height:64%;letter-spacing:1px;margin:0;text-transform:uppercase;}
 div#wrapper .important{background:#f5f5dc url(images/important.png) no-repeat 0.5em center;border-bottom:1px solid #d0d0bb;border-top:1px solid #d0d0bb;padding:0.3em 0.5em 0.3em 2.3em;}
 div#wrapper div.entry-content .download{background:url(images/file-download.png) no-repeat center left;}
 div#wrapper div.entry-content .html{background:url(images/file-html.png) no-repeat center left;}
 div#wrapper div.entry-content .html,div#wrapper div.entry-content .download,div#wrapper div.entry-content .pdf,div#wrapper div.entry-content .zip{margin-left:2px;padding:2px 0 2px 19px;}
 div#wrapper div.entry-content .pdf{background:url(images/file-pdf.png) no-repeat center left;}
 div#wrapper div.entry-content .zip{background:url(images/file-zip.png) no-repeat center left;}
-div.comments h3{color:#4d5663;font-family:arial,verdana,geneva;font-size:1.4em;font-weight:400;margin:4em 0 0.3em;}
-div.comments h3.comment-header span.comment-count{color:#7a818a;font-family:georgia,times,serif;font-size:0.8em;padding-left:0.2em;}
+div.comments h3{color:#4d5663;font-size:1.4em;font-weight:400;margin:4em 0 0.3em;}
+div.comments h3.comment-header span.comment-count{color:#7a818a;font-size:0.8em;padding-left:0.2em;}
 div.comments ol#comments{margin:0 0 0 2em;padding:0;}
 div.comments ol#comments li{margin:1em 0 5em;padding:0;}
 div.comments ol#pingbacks{list-style:none;margin:1em 0 0 1.5em;padding:0;}
@@ -56,10 +57,10 @@ div.entry-content blockquote blockquote,div.comments ol.commentlist blockquote b
 div.entry-content blockquote,div.comments ol.commentlist blockquote{background:#ebedef;color:#4d5663;padding:0.1em 1em;}
 div.entry-content code,div.entry-content pre,div.comments ol.commentlist code,div.comments ol.commentlist pre{color:#494C5C;font:1em/133% "courier new",courier,monospace;}
 div.entry-content del,div.comments ol.commentlist del{background:#ebedef;color:#31343a;}
-div.entry-content div.page-link{font-family:verdana,geneva,sans-serif;font-size:0.9em;font-weight:700;margin:0 0 1.5em;text-align:center;}
+div.entry-content div.page-link{font-size:0.9em;font-weight:700;margin:0 0 1.5em;text-align:center;}
 div.entry-content em,div.comments ol.commentlist em{font-style:normal;font-weight:700;}
 div.entry-content h2,div.entry-content h3{font-size:1.5em;margin:1.5em 0 -0.3em;}
-div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-family:arial,helvetica,sans-serif;font-weight:400;}
+div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-weight:400;}
 div.entry-content h4{font-size:1.4em;margin:1.5em 0 -0.3em;}
 div.entry-content h5{font-size:1.3em;margin:1.5em 0 -0.4em;}
 div.entry-content h6{font-size:1.2em;margin:1.5em 0 -0.5em;}
@@ -68,7 +69,7 @@ div.entry-content ins,div.comments ol.commentlist ins{background:#f5f5dc;}
 div.entry-content ol ol{list-style:lower-alpha;}
 div.entry-content p,div.formcontainer p{margin:1em 0;}
 div.entry-content p.attachment-name{margin:-0.5em 0 1em;}
-div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q{color:#494C5C;font-family:verdana,geneva,sans-serif;}
+div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q{color:#494c5c;}
 div.entry-content strong,div.comments ol#comments strong{text-transform:uppercase;}
 div.entry-content ul ul{list-style:square;}
 div.entry-content ul.content-column li{list-style:none;margin:0;padding:0;}
@@ -76,34 +77,38 @@ div.entry-content ul.content-column li h3{margin-bottom:0.3em;}
 div.entry-content ul.content-column li ul li{list-style:disc;margin:0 0 0 1.5em;}
 div.entry-content ul.content-column,div.entry-content ul.content-column ul,div.formcontainer form#commentform,div.sidebar ul,div.sidebar ul li#blogtxt-recent-comments blockquote.comment-summary,div.sidebar ul li#blogtxt-recent-comments blockquote.comment-summary p{margin:0;padding:0;}
 div.formcontainer div.form-input{margin:0 0 1em;}
-div.formcontainer div.form-input input{width:50%;}
-div.formcontainer div.form-input input,div.formcontainer div.form-textarea textarea{background:#f6f6f7;border:1px solid #7a818a;font:1em/normal verdana,geneva,sans-serif;padding:0.3em;}
+div.formcontainer div.form-input input{width:20em;}
+div.formcontainer div.form-input input,div.formcontainer div.form-textarea textarea{background:#f6f6f7;border:1px solid #7a818a;font-size:1em;line-height:normal;padding:0.3em;}
 div.formcontainer div.form-textarea-label{margin:1em 0 0.2em;}
-div.formcontainer textarea#comment{height:12em;margin:0 0 0.5em;overflow:auto;width:62%;}
+div.formcontainer textarea#comment{height:12em;margin:0 0 0.5em;overflow:auto;width:25em;}
 div.formcontainer,p#mustlogin{margin:0 0 1em 1.5em;}
 div.hentry div.archive-meta{font-style:italic;margin:0.5em 0 2em 2em;}
-div.hentry div.entry-meta{background:#f6f7f8;border-bottom:1px solid #ccd0d6;border-top:1px solid #ccd0d6;color:#677284;font-family:verdana,geneva,sans-serif;font-size:0.9em;margin:1em 0 5em;padding:0.2em 0.5em;text-align:center;}
+div.hentry div.entry-meta{background:#f6f7f8;border-bottom:1px solid #ccd0d6;border-top:1px solid #ccd0d6;color:#677284;font-size:0.9em;margin:1em 0 5em;padding:0.2em 0.5em;text-align:center;}
 div.hentry div.entry-meta span.meta-sep{padding:0 0 0 0.3em;}
-div.hfeed{margin:0 3em 0 0;}
-div.hfeed .entry-title{font-family:arial,helvetica,sans-serif;font-size:1.6em;font-weight:400;line-height:133%;margin:0 0 -0.3em;text-transform:uppercase;}
-div.hfeed .page-title{color:#4d5663;font-family:arial,helvetica,sans-serif;font-size:1.7em;font-weight:400;line-height:133%;margin:2em 0 0;}
+div.hfeed .entry-title{font-size:1.6em;font-weight:400;line-height:133%;margin:0 0 -0.3em;text-transform:uppercase;}
+div.hfeed .page-title{color:#4d5663;font-size:1.7em;font-weight:400;line-height:133%;margin:2em 0 0;}
 div.hfeed .page-title span.page-subtitle{color:#7a818a;font-size:0.8em;padding-left:0.2em;}
+div.hfeed div#post-0 input#s{width:50%;}
 div.hfeed div.p1{margin:5em 0 0;}
 div.nav-next{float:right;text-align:right;}
 div.nav-previous{float:left;text-align:left;}
 div.navigation{font-size:0.9em;height:1.2em;text-align:center;text-transform:uppercase;}
 div.navigation div{width:48%;}
-div.sidebar{font-family:verdana,geneva,sans-serif;line-height:150%;}
+div.sidebar{line-height:150%;}
 div.sidebar ul li{list-style:none;margin:0 0 2.5em;padding:0;}
-div.sidebar ul li h3{font:bold 1.2em/133% "times new roman",times,serif;letter-spacing:1px;margin:0 0 0.1em;text-transform:uppercase;}
+div.sidebar ul li h3{font-weight:bold;font-size:1.2em;line-height:133%;letter-spacing:1px;margin:0 0 0.1em;text-transform:uppercase;}
 div.sidebar ul li ul li{color:#4d5663;margin:0;padding:0;}
 div.sidebar ul li ul li ul{margin:0 0 0.2em;}
 div.sidebar ul li ul li ul li{color:#9aa1ae;list-style:disc;margin:0 0 0 2em;}
 div.sidebar ul li#blogtxt-recent-comments span.comment-entry-title{font-size:0.8em;}
 div.sidebar ul li#blogtxt-recent-comments ul li{margin:0 0 2em;}
+div.sidebar ul li#calendar div#calendar_wrap{margin:0.5em 0 0;}
+div.sidebar ul li#calendar table#wp-calendar{text-align:center;width:75%;}
+div.sidebar ul li#calendar table#wp-calendar tbody a{font-size:1.1em;font-weight:700;}
+div.sidebar ul li#google-search div form#gsearch,div.sidebar ul li#calendar table#wp-calendar caption{text-align:left;}
 div.sidebar ul li#rss-links ul li a{background:url(images/feed.png) no-repeat left center;padding:0 0 0 15px;}
 div.sidebar ul li#search form#searchform{margin:0.2em 0 0;padding:0;}
-div.hfeed div#post-0 input#s{width:50%;}
 div.sidebar ul li#search input#s{width:7em;}
 div.sidebar ul li.entry-interact ul li.comment-link a{background:url(images/comments.png) no-repeat left center;padding:0 0 0 15px;}
 div.sidebar ul li.entry-interact ul li.trackback-link a{background:url(images/trackbacks.png) no-repeat left center;padding:0 0 0 15px;}
+div.sidebar ul li.widget_text div.textwidget p{margin:0 0 0.5em;}
