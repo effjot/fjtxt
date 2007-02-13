@@ -4,4 +4,4 @@ body div#blog-description,body div.sidebar,body div.access,body div#globalnav,bo
 body div#wrapper div#header{background-color:#fff;background-image:none;color:#000;}
 body div#wrapper div#header h1 a,html body div#wrapper div#header h1 a:link,html body div#wrapper div#header h1 a:visited,html body div#wrapper div#header h1 a:hover,html body div#wrapper div#header h1 a:active{color:#000;}
 body.single div.entry-meta{line-height:200%;margin:0 20%;}
-body.home div.entry-meta,body.archive div.entry-meta,body.search div.entry-meta{margin:0 20%;padding:0 2em;}
+body.home div.entry-meta,body.archive div.entry-meta,body.search div.entry-meta{text-align:center;margin:0 5%;padding:0 2em;}
