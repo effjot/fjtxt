@@ -155,7 +155,7 @@ function blogtxt_other_cats($glue) {
 	return trim(join($glue, $cats));
 }
 
-// Loads a Barthelme-style Search widget
+// Loads a blog.txt-style Search widget
 function widget_blogtxt_search($args) {
 	extract($args);
 ?>
@@ -171,7 +171,7 @@ function widget_blogtxt_search($args) {
 <?php
 }
 
-// Loads a Barthelme-style Meta widget
+// Loads a blog.txt-style Meta widget
 function widget_blogtxt_meta($args) {
 	extract($args);
 	$options = get_option('widget_meta');
@@ -224,7 +224,7 @@ function widget_blogtxt_homelink_control() {
 <?php
 }
 
-// Loads Barthelme-style RSS Links (separate from Meta) widget
+// Loads blog.txt-style RSS Links (separate from Meta) widget
 function widget_blogtxt_rsslinks($args) {
 	extract($args);
 	$options = get_option('widget_blogtxt_rsslinks');

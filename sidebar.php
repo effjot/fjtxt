@@ -28,7 +28,7 @@ $comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comme
 <?php endif; // End Widgets ?>
 
 		</ul>
-	</div>
+	</div><!-- #primary .sidebar -->
 
 	<div id="secondary" class="sidebar">
 		<ul>
@@ -91,4 +91,4 @@ $comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comme
 <?php endif; // End Widgets ?>
 
 		</ul>
-	</div>
+	</div><!-- #secondary .sidebar -->
