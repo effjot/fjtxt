@@ -1,4 +1,4 @@
-/* BLOG.TXT TWO-COLUMN (LEFT) LAYOUT */
+/* BLOG.TXT THREE-COLUMN (LEFT/RIGHT) LAYOUT */
 * html div#primary{left:0;position:relative;}
 div#container{float:left;width:100%;}
 div#content{margin:0 16em;}

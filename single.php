@@ -15,7 +15,7 @@
 
 <!-- <?php trackback_rdf(); ?> -->
 
-				</div>
+				</div><!-- .post -->
 
 <?php comments_template(); ?>
 
@@ -24,9 +24,9 @@
 					<div class="nav-next"><?php next_post_link(__('%link &raquo;', 'blogtxt')) ?></div>
 				</div>
 
-			</div>
-		</div>
-	</div>
+			</div><!-- .hfeed -->
+		</div><!-- #content -->
+	</div><!-- #container -->
 
 	<div id="primary" class="sidebar">
 		<ul>
@@ -48,7 +48,7 @@
 				</ul>
 			</li>
 		</ul>
-	</div>
+	</div><!-- single.php #primary .sidebar -->
 
 	<div id="secondary" class="sidebar">
 		<ul>
@@ -88,6 +88,6 @@
 				</form>
 			</li>
 		</ul>
-	</div>
+	</div><!-- single.php #secondary .sidebar -->
 
 <?php get_footer() ?>

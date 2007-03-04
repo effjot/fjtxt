@@ -15,14 +15,14 @@
 					<div class="entry-meta">
 						<span class="meta-sep">&para;</span>
 						<span class="entry-date">Posted <abbr class="published" title="<?php the_time('Y-m-d\TH:i:sO'); ?>"><?php unset($previousday); printf(__('%1$s', 'blogtxt'), the_date('d F Y', false)) ?></abbr></span>
-						<?php blogtxt_author_link(); ?>
+						<?php blogtxt_author_link(); // Function for author link option ?>
 						<span class="meta-sep">&sect;</span>
 						<span class="entry-category"><?php the_category(' &sect; ') ?></span>
 						<span class="meta-sep">&Dagger;</span>
 						<span class="entry-comments"><?php comments_popup_link(__('Comments (0)', 'blogtxt'), __('Comments (1)', 'blogtxt'), __('Comments (%)', 'blogtxt')) ?></span>
 <?php edit_post_link(__('Edit', 'blogtxt'), "\t\t\t\t\t<span class=\"meta-sep\">&equiv;</span>\n\t\t\t\t\t<span class='entry-edit'>", "</span>\n"); ?>
 					</div>
-				</div>
+				</div><!-- .post -->
 
 <?php endwhile ?>
 
@@ -31,9 +31,9 @@
 					<div class="nav-next"><?php previous_posts_link(__('Later posts &raquo;', 'blogtxt')) ?></div>
 				</div>
 
-			</div>
-		</div>
-	</div>
+			</div><!-- .hfeed -->
+		</div><!-- #content -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

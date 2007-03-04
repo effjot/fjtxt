@@ -4,8 +4,8 @@
 
 <?php the_post() ?>
 
-<?php $attachment_link = get_the_attachment_link($post->ID, true, array(450, 800)); // DOES THIS, AND POPULATES THE NEXT LINE FOR SIZING ?>
-<?php $_post = &get_post($post->ID); $classname = ($_post->iconsize[0] <= 128 ? 'small' : '') . 'attachment'; // GIVES SMALL ITEMS A 'SMALL' CLASS ?>
+<?php $attachment_link = get_the_attachment_link($post->ID, true, array(450, 800)); // Resises the image (attachment) as needed ?>
+<?php $_post = &get_post($post->ID); $classname = ($_post->iconsize[0] <= 128 ? 'small' : '') . 'attachment'; // Gives small attachments a small class, which is neat: CSS + design ?>
 
 		<h2 class="page-title"><a href="<?php echo get_permalink($post->post_parent) ?>" rev="attachment"><?php echo get_the_title($post->post_parent) ?></a></h2>
 
@@ -23,7 +23,7 @@
 
 <!-- <?php trackback_rdf(); ?> -->
 
-				</div>
+				</div><!-- .post -->
 
 <?php comments_template(); ?>
 
@@ -32,9 +32,9 @@
 					<div class="nav-next"><?php next_post_link(__('%link &raquo;', 'blogtxt')) ?></div>
 				</div>
 
-			</div>
-		</div>
-	</div>
+			</div><!-- .hfeed -->
+		</div><!-- #content -->
+	</div><!-- #container -->
 
 	<div id="primary" class="sidebar">
 		<ul>
@@ -56,7 +56,7 @@
 				</ul>
 			</li>
 		</ul>
-	</div>
+	</div><!-- attachment.php #primary .sidebar -->
 
 	<div id="secondary" class="sidebar">
 		<ul>
@@ -96,6 +96,6 @@
 				</form>
 			</li>
 		</ul>
-	</div>
+	</div><!-- attachment.php #secondary .sidebar -->
 
 <?php get_footer() ?>

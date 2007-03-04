@@ -24,7 +24,7 @@
 						<span class="entry-comments"><?php comments_popup_link(__('Comments (0)', 'blogtxt'), __('Comments (1)', 'blogtxt'), __('Comments (%)', 'blogtxt')) ?></span>
 <?php edit_post_link(__('Edit', 'blogtxt'), "\t\t\t\t\t<span class=\"meta-sep\">&equiv;</span>\n\t\t\t\t\t<span class='entry-edit'>", "</span>\n"); ?>
 					</div>
-				</div>
+				</div><!-- .post -->
 
 <?php endwhile; ?>
 
@@ -48,13 +48,13 @@
 							<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" tabindex="2" />
 						</div>
 					</form>
-				</div>
+				</div><!-- #post-0 .post -->
 
 <?php endif; ?>
 
-			</div>
-		</div>
-	</div>
+			</div><!-- .hfeed -->
+		</div><!-- #content -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

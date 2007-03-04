@@ -13,10 +13,10 @@
 							<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" tabindex="2" />
 						</div>
 					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+				</div><!-- #post-0 .post -->
+			</div><!-- .hfeed -->
+		</div><!-- #content -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

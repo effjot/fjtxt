@@ -11,13 +11,13 @@ Template Name: Links Page
 
 				<div id="post-<?php the_ID(); ?>" class="<?php blogtxt_post_class() ?>">
 					<h2 class="entry-title"><?php the_title() ?></h2>
-					<?php if ( get_post_custom_values('authorlink') ) printf(__('<div class="author-meta">By %1$s</div>', 'blogtxt'), blogtxt_author_link() ) ?>
+					<?php if ( get_post_custom_values('authorlink') ) printf(__('<div class="archive-meta">By %1$s</div>', 'blogtxt'), blogtxt_author_link() ) // Add a key/value of "authorlink" to show an author byline on a page ?>
 					<div class="entry-content">
 <?php the_content() ?>
 
 						<ul id="linkcats" class="content-column">
-<?php if ( function_exists('wp_list_bookmarks') ) : wp_list_bookmarks('categorize=true&title_before=<h3>&title_after=</h3>'); else : ?>
-<?php
+<?php if ( function_exists('wp_list_bookmarks') ) : wp_list_bookmarks('categorize=true&title_before=<h3>&title_after=</h3>'); else : // Shows WordPress 2.1.x links, or . . . ?>
+<?php // Shows WordPress 2.0.x links
 $link_cats = $wpdb->get_results("SELECT cat_id, cat_name FROM $wpdb->linkcategories");
 foreach ($link_cats as $link_cat) :
 ?>
@@ -33,13 +33,13 @@ foreach ($link_cats as $link_cat) :
 <?php edit_post_link(__('Edit this entry.', 'blogtxt'),'<p class="entry-edit">','</p>') ?>
 
 					</div>
-				</div>
+				</div><!-- .post -->
 
-<?php if ( get_post_custom_values('comments') ) comments_template() ?>
+<?php if ( get_post_custom_values('comments') ) comments_template() // Add a key/value of "comments" to load comments on a page ?>
 
-			</div>
-		</div>
-	</div>
+			</div><!-- .hfeed -->
+		</div><!-- #content -->
+	</div><!-- #container -->
 
 <?php get_sidebar() ?>
 <?php get_footer() ?>

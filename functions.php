@@ -1,4 +1,5 @@
 <?php
+// Produces links for every page just below the header
 function blogtxt_globalnav() {
 	echo "<div id=\"globalnav\"><ul id=\"menu\">";
 	if ( !is_home() || is_paged() ) { ?><li class="page_item home_page_item"><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt') ?></a></li><?php }
@@ -7,17 +8,20 @@ function blogtxt_globalnav() {
 	echo "</ul></div>\n";
 }
 
+// Produces an hCard for the "admin" user
 function blogtxt_admin_hCard() {
 	global $wpdb, $admin_info;
 	$admin_info = get_userdata(1);
 	echo '<span class="vcard"><a class="url fn n" href="' . $admin_info->user_url . '"><span class="given-name">' . $admin_info->first_name . '</span> <span class="family-name">' . $admin_info->last_name . '</span></a></span>';
 }
 
+// Produces an hCard for post authors
 function blogtxt_author_hCard() {
 	global $wpdb, $authordata;
 	echo '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 }
 
+// Produces semantic classes for the body element; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function blogtxt_body_class( $print = true ) {
 	global $wp_query, $current_user;
 
@@ -71,6 +75,7 @@ function blogtxt_body_class( $print = true ) {
 	return $print ? print($c) : $c;
 }
 
+// Produces semantic classes for the each individual post div; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function blogtxt_post_class( $print = true ) {
 	global $post, $blogtxt_post_alt;
 
@@ -92,6 +97,7 @@ function blogtxt_post_class( $print = true ) {
 }
 $blogtxt_post_alt = 1;
 
+// Produces semantic classes for the each individual comment li; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function blogtxt_comment_class( $print = true ) {
 	global $comment, $post, $blogtxt_comment_alt;
 
@@ -121,6 +127,7 @@ function blogtxt_comment_class( $print = true ) {
 	return $print ? print($c) : $c;
 }
 
+// Produces date-based classes for the three functions above; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function blogtxt_date_classes($t, &$c, $p = '') {
 	$t = $t + (get_settings('gmt_offset') * 3600);
 	$c[] = $p . 'y' . gmdate('Y', $t);
@@ -129,6 +136,7 @@ function blogtxt_date_classes($t, &$c, $p = '') {
 	$c[] = $p . 'h' . gmdate('h', $t);
 }
 
+// Produces links to categories other than the current one; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function blogtxt_other_cats($glue) {
 	$current_cat = single_cat_title('', false);
 	$separator = "\n";
@@ -147,6 +155,7 @@ function blogtxt_other_cats($glue) {
 	return trim(join($glue, $cats));
 }
 
+// Loads a Barthelme-style Search widget
 function widget_blogtxt_search($args) {
 	extract($args);
 ?>
@@ -162,6 +171,7 @@ function widget_blogtxt_search($args) {
 <?php
 }
 
+// Loads a Barthelme-style Meta widget
 function widget_blogtxt_meta($args) {
 	extract($args);
 	$options = get_option('widget_meta');
@@ -182,6 +192,7 @@ function widget_blogtxt_meta($args) {
 <?php
 }
 
+// Loads the Home Link widget; Allows a link to always point back to the home page
 function widget_blogtxt_homelink($args) {
 	extract($args);
 	$options = get_option('widget_blogtxt_homelink');
@@ -195,6 +206,7 @@ function widget_blogtxt_homelink($args) {
 <?php
 }
 
+// Loads the control functions for the Home Link, allowing control of its text
 function widget_blogtxt_homelink_control() {
 	$options = $newoptions = get_option('widget_blogtxt_homelink');
 	if ( $_POST["homelink-submit"] ) {
@@ -212,6 +224,7 @@ function widget_blogtxt_homelink_control() {
 <?php
 }
 
+// Loads Barthelme-style RSS Links (separate from Meta) widget
 function widget_blogtxt_rsslinks($args) {
 	extract($args);
 	$options = get_option('widget_blogtxt_rsslinks');
@@ -227,6 +240,7 @@ function widget_blogtxt_rsslinks($args) {
 <?php
 }
 
+// Loads the control functions for the RSS Links, allowing control of its text
 function widget_blogtxt_rsslinks_control() {
 	$options = $newoptions = get_option('widget_blogtxt_rsslinks');
 	if ( $_POST["rsslinks-submit"] ) {
@@ -243,6 +257,7 @@ function widget_blogtxt_rsslinks_control() {
 <?php
 }
 
+// Loads a recent comments widget just like the default blog.txt one
 function widget_blogtxt_recent_comments($args) {
 	global $wpdb, $comments, $comment;
 	extract($args);
@@ -265,6 +280,7 @@ function widget_blogtxt_recent_comments($args) {
 <?php
 }
 
+// Allows control over the text for the blog.txt recent comments widget
 function widget_blogtxt_recent_comments_control() {
 	$options = $newoptions = get_option('widget_blogtxt_recent_comments');
 	if ( $_POST["recentcomments-submit"] ) {
@@ -284,6 +300,7 @@ function widget_blogtxt_recent_comments_control() {
 <?php
 }
 
+// Produces blogroll links for both WordPress 2.0.x or 2.1.x compliance
 function widget_blogtxt_links() {
 	if ( function_exists('wp_list_bookmarks') ) {
 		wp_list_bookmarks(array('title_before'=>'<h3>', 'title_after'=>'</h3>', 'show_images'=>true));
@@ -321,6 +338,7 @@ function widget_blogtxt_links() {
 	}
 }
 
+// Loads, checks that Widgets are loaded and working
 function blogtxt_widgets_init() {
 	if ( !function_exists('register_sidebars') )
 		return;
@@ -345,6 +363,7 @@ function blogtxt_widgets_init() {
 	register_widget_control(array('blog.txt Recent Comments', 'widgets'), 'widget_blogtxt_recent_comments_control', 300, 125, 'blogtxtrecentcomments');
 }
 
+// Loads the admin menu; sets default settings for each
 function blogtxt_add_admin() {
 	if ( $_GET['page'] == basename(__FILE__) ) {
 	
@@ -396,7 +415,7 @@ function blogtxt_add_admin() {
 }
 
 function blogtxt_admin_head() {
-
+// Additional CSS styles for the theme options menu
 ?>
 <meta name="author" content="Scott Allan Wallick" />
 <style type="text/css" media="all">
@@ -423,11 +442,11 @@ span.info span{font-weight:bold;}
 <?php
 }
 
-function blogtxt_admin() {
+function blogtxt_admin() { // Theme options menu 
 	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('Blog.txt theme options saved. <a href="%s">View site &raquo;</a>', 'blogtxt'), get_bloginfo('home') . '/'); ?></p></div><?php }
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('Blog.txt theme options reset.', 'blogtxt'); ?></p></div><?php } ?>
 	
-<?php $installedVersion = "3.0"; ?>
+<?php $installedVersion = "3.0.1"; // Checks that the latest version is running; if not, loads the external script below ?>
 <script src="http://www.plaintxt.org/ver-check/blogtxt-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
 
 <div class="wrap" id="blogtxt-options">
@@ -625,9 +644,10 @@ function blogtxt_admin() {
 <?php
 }
 
+// Loads settings for the theme options to use
 function blogtxt_wp_head() {
 
-	function blogtxt_author_link() {
+	function blogtxt_author_link() { // Option to show the author link, or not
 		global $wpdb, $authordata;
 		if ( get_settings('blogtxt_authorlink') == "" ) {
 			if ( is_single() || is_page() ) {
@@ -717,7 +737,7 @@ div.hfeed div.hentry{text-align:<?php echo $posttextalignment; ?>;}
 
 /*]]>*/
 </style>
-<?php
+<?php // Checks that everything has loaded properly
 }
 add_action('admin_menu', 'blogtxt_add_admin');
 add_action('wp_head', 'blogtxt_wp_head');
