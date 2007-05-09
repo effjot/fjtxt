@@ -1,5 +1,6 @@
 <div class="comments">
 <?php
+	$req = get_settings('require_name_email'); // Checks if fields are required
 	if ( 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']) )
 		die ( 'Please do not load this page directly. Thanks!' );
 	if ( ! empty($post->post_password) ) :

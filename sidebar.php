@@ -1,18 +1,18 @@
 	<div id="primary" class="sidebar">
 		<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
-<?php if ( !is_home() || is_paged() ) { // Displays a home link everywhere except the home page ?>
+	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
+	<?php if ( !is_home() || is_paged() ) { // Displays a home link everywhere except the home page ?>
 			<li id="home-link">
 				<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'blogtxt'); ?></a></h3>
 			</li>
-<?php } ?>
+	<?php } ?>
 
 			<?php wp_list_pages('title_li=<h3>'.__('Contents').'</h3>&sort_column=post_title' ) ?>
 
-<?php if ( is_home() ) { ?>
-<?php global $wpdb, $comments, $comment;
-// Mini-function for blog.txt recent comments 
-$comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comment_ID, comment_post_ID, SUBSTRING(comment_content,1,65) AS comment_excerpt FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) WHERE comment_approved = '1' AND comment_type = '' AND post_password = '' ORDER BY comment_date_gmt DESC LIMIT 5"); ?>
+	<?php if ( is_home() ) { ?>
+	<?php global $wpdb, $comments, $comment;
+	// Mini-function for blog.txt recent comments 
+	$comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comment_ID, comment_post_ID, SUBSTRING(comment_content,1,65) AS comment_excerpt FROM $wpdb->comments LEFT OUTER JOIN $wpdb->posts ON ($wpdb->comments.comment_post_ID = $wpdb->posts.ID) WHERE comment_approved = '1' AND comment_type = '' AND post_password = '' ORDER BY comment_date_gmt DESC LIMIT 5"); ?>
 			<li id="blogtxt-recent-comments">
 				<h3><?php _e('Recent Comments', 'blogtxt') ?></h3>
 				<ul id="recentcomments"><?php
@@ -24,24 +24,24 @@ $comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comme
 					strip_tags($comment->comment_excerpt) ) . '</li>';
 				endforeach; endif; ?></ul>
 			</li>
-<?php } ?>
-<?php endif; // End Widgets ?>
+	<?php } ?>
+	<?php endif; // End Widgets ?>
 
 		</ul>
 	</div><!-- #primary .sidebar -->
 
 	<div id="secondary" class="sidebar">
 		<ul>
-<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
-<?php if ( is_home() || is_category() ) { // Displays category archives on the home and category pages?>
+	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
+	<?php if ( is_home() || is_category() ) { // Displays category archives on the home and category pages?>
 			<li id="categories">
 				<h3><?php _e('Category Archives', 'blogtxt'); ?></h3>
 				<ul>
-<?php wp_list_cats('sort_column=name&hierarchical=1') ?>
+	<?php wp_list_cats('sort_column=name&hierarchical=1') ?>
 
 				</ul>
 			</li>
-<?php } if ( is_home() || is_page() ) { // Displays RSS and Meta links on the home and 'page' pages ?>
+	<?php } if ( is_home() || is_page() ) { // Displays RSS and Meta links on the home and 'page' pages ?>
 			<li id="rss-links">
 				<h3><?php _e('RSS Feeds', 'blogtxt') ?></h3>
 				<ul>
@@ -62,23 +62,23 @@ $comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comme
 
 				</ul>
 			</li>
-<?php } elseif ( is_date() ) { // Displays monthly archives on date-based archive pages?>
+	<?php } elseif ( is_date() ) { // Displays monthly archives on date-based archive pages?>
 			<li id="archives">
 				<h3><?php _e('Monthly Archives', 'blogtxt') ?></h3>
 				<ul>
-<?php wp_get_archives('type=monthly') ?>
+	<?php wp_get_archives('type=monthly') ?>
 
 				</ul>
 			</li>
-<?php } elseif ( is_author() ) { // Displays author archives on author archvies ?>
+	<?php } elseif ( is_author() ) { // Displays author archives on author archvies ?>
 			<li id="authors">
 				<h3><?php _e('Author Archives', 'blogtxt') ?></h3>
 				<ul>
-<?php wp_list_authors('optioncount=0&exclude_admin=0&show_fullname=1&hide_empty=1') ?>
+	<?php wp_list_authors('optioncount=0&exclude_admin=0&show_fullname=1&hide_empty=1') ?>
 
 				</ul>
 			</li>
-<?php } ?>
+	<?php } ?>
 			<li id="search">
 				<h3><label for="s"><?php _e('Search', 'blogtxt') ?></label></h3>
 				<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
@@ -88,7 +88,7 @@ $comments = $wpdb->get_results("SELECT comment_author, comment_author_url, comme
 					</div>
 				</form>
 			</li>
-<?php endif; // End Widgets ?>
+	<?php endif; // End Widgets ?>
 
 		</ul>
 	</div><!-- #secondary .sidebar -->
