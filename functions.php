@@ -2,10 +2,29 @@
 // Produces links for every page just below the header
 function blogtxt_globalnav() {
 	echo "<div id=\"globalnav\"><ul id=\"menu\">";
-	if ( !is_home() || is_paged() ) { ?><li class="page_item home_page_item"><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt') ?></a></li><?php }
+	echo blogtxt_homelink();
 	$menu = wp_list_pages('title_li=&sort_column=post_title&echo=0');
 	echo str_replace(array("\r", "\n", "\t"), '', $menu);
 	echo "</ul></div>\n";
+}
+
+// Creates a link to the 'home' page when elsewhere; credit to Adam , http://sunburntkamel.archgfx.net/
+function blogtxt_homelink() {
+	global $wp_db_version;
+	$blogtxt_frontpage = get_option('show_on_front');
+	$blogtxt_is_front = get_option('page_on_front');
+
+	if ( $blogtxt_frontpage == 'page' ) {
+		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'sandbox') ?></a></li><?php }
+	} else {
+		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'sandbox') ?></a></li><?php }
+	}
+}
+
+// Checks for WP 2.1.x language_attributes() function
+function blogtxt_blog_lang() {
+	if ( function_exists('language_attributes') )
+		return language_attributes();
 }
 
 // Produces an hCard for the "admin" user
@@ -195,15 +214,17 @@ function widget_blogtxt_meta($args) {
 // Loads the Home Link widget; Allows a link to always point back to the home page
 function widget_blogtxt_homelink($args) {
 	extract($args);
+	global $wp_db_version;
 	$options = get_option('widget_blogtxt_homelink');
-	$title = empty($options['title']) ? __('&laquo; Home', 'blogtxt') : $options['title'];
+	$title = empty($options['title']) ? __('Home', 'blogtxt') : $options['title'];
+	$blogtxt_frontpage = get_option('show_on_front');
+	$blogtxt_is_front = get_option('page_on_front');
 ?>
-<?php if ( !is_home() || is_paged() ) { ?>
-		<?php echo $before_widget; ?>
-			<?php echo $before_title ?><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php echo $title ?></a><?php echo $after_title ?>
-		<?php echo $after_widget; ?>
-<?php } ?>
-<?php
+<?php if ( $blogtxt_frontpage == 'page' ) {
+		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><?php echo $before_widget; ?><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php echo $title ?></a><?php echo $after_widget; ?><?php }
+	} else {
+		if ( !is_home() || is_paged() ) { ?><?php echo $before_widget; ?><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php echo $title ?></a><?php echo $after_widget; ?><?php }
+	}
 }
 
 // Loads the control functions for the Home Link, allowing control of its text
@@ -646,6 +667,10 @@ function blogtxt_admin() { // Theme options menu
 
 // Loads settings for the theme options to use
 function blogtxt_wp_head() {
+	global $wp_version;
+
+	if ( version_compare($wp_version, '2.1.10', '>') )
+		echo "\t", '<link rel="introspection" type="application/atomserv+xml" title="' . get_bloginfo('name') .__(" Atom API"). '" href="' . get_bloginfo('url') . '/wp-app.php" />', "\n";
 
 	function blogtxt_author_link() { // Option to show the author link, or not
 		global $wpdb, $authordata;
@@ -722,7 +747,8 @@ function blogtxt_wp_head() {
 
 
 ?>
-<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/layouts/<?php echo $layouttype; ?>" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/layouts/<?php echo $layouttype; ?>" />
+
 <style type="text/css" media="all">
 /*<![CDATA[*/
 /* CSS inserted by theme options */
