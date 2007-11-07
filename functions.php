@@ -15,16 +15,10 @@ function blogtxt_homelink() {
 	$blogtxt_is_front = get_option('page_on_front');
 
 	if ( $blogtxt_frontpage == 'page' ) {
-		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'sandbox') ?></a></li><?php }
+		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'barthelme') ?></a></li><?php }
 	} else {
-		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'sandbox') ?></a></li><?php }
+		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'barthelme') ?></a></li><?php }
 	}
-}
-
-// Checks for WP 2.1.x language_attributes() function
-function blogtxt_blog_lang() {
-	if ( function_exists('language_attributes') )
-		return language_attributes();
 }
 
 // Produces an hCard for the "admin" user
@@ -155,7 +149,7 @@ function blogtxt_date_classes($t, &$c, $p = '') {
 	$c[] = $p . 'h' . gmdate('h', $t);
 }
 
-// Produces links to categories other than the current one; Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
+// Returns other categories except the current one (redundant); Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
 function blogtxt_other_cats($glue) {
 	$current_cat = single_cat_title('', false);
 	$separator = "\n";
@@ -172,6 +166,25 @@ function blogtxt_other_cats($glue) {
 		return false;
 
 	return trim(join($glue, $cats));
+}
+
+// Returns other tags except the current one (redundant); Originally from the Sandbox, http://www.plaintxt.org/themes/sandbox/
+function blogtxt_other_tags($glue) {
+	$current_tag = single_tag_title('', '',  false);
+	$separator = "\n";
+	$tags = explode($separator, get_the_tag_list("", "$separator", ""));
+
+	foreach ( $tags as $i => $str ) {
+		if ( strstr($str, ">$current_tag<") ) {
+			unset($tags[$i]);
+			break;
+		}
+	}
+
+	if ( empty($tags) )
+		return false;
+
+	return trim(join($glue, $tags));
 }
 
 // Loads a blog.txt-style Search widget
@@ -209,22 +222,6 @@ function widget_blogtxt_meta($args) {
 			</ul>
 		<?php echo $after_widget; ?>
 <?php
-}
-
-// Loads the Home Link widget; Allows a link to always point back to the home page
-function widget_blogtxt_homelink($args) {
-	extract($args);
-	global $wp_db_version;
-	$options = get_option('widget_blogtxt_homelink');
-	$title = empty($options['title']) ? __('Home', 'blogtxt') : $options['title'];
-	$blogtxt_frontpage = get_option('show_on_front');
-	$blogtxt_is_front = get_option('page_on_front');
-?>
-<?php if ( $blogtxt_frontpage == 'page' ) {
-		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><?php echo $before_widget; ?><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php echo $title ?></a><?php echo $after_widget; ?><?php }
-	} else {
-		if ( !is_home() || is_paged() ) { ?><?php echo $before_widget; ?><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php echo $title ?></a><?php echo $after_widget; ?><?php }
-	}
 }
 
 // Loads the control functions for the Home Link, allowing control of its text
@@ -321,44 +318,6 @@ function widget_blogtxt_recent_comments_control() {
 <?php
 }
 
-// Produces blogroll links for both WordPress 2.0.x or 2.1.x compliance
-function widget_blogtxt_links() {
-	if ( function_exists('wp_list_bookmarks') ) {
-		wp_list_bookmarks(array('title_before'=>'<h3>', 'title_after'=>'</h3>', 'show_images'=>true));
-	} else {
-		global $wpdb;
-
-		$cats = $wpdb->get_results("
-			SELECT DISTINCT link_category, cat_name, show_images, 
-				show_description, show_rating, show_updated, sort_order, 
-				sort_desc, list_limit
-			FROM `$wpdb->links` 
-			LEFT JOIN `$wpdb->linkcategories` ON (link_category = cat_id)
-			WHERE link_visible =  'Y'
-				AND list_limit <> 0
-			ORDER BY cat_name ASC", ARRAY_A);
-	
-		if ($cats) {
-			foreach ($cats as $cat) {
-				$orderby = $cat['sort_order'];
-				$orderby = (bool_from_yn($cat['sort_desc'])?'_':'') . $orderby;
-
-				echo '	<li id="linkcat-' . $cat['link_category'] . '" class="linkcat"><h3>' . $cat['cat_name'] . "</h3>\n\t<ul>\n";
-				get_links($cat['link_category'],
-					'<li>',"</li>","\n",
-					bool_from_yn($cat['show_images']),
-					$orderby,
-					bool_from_yn($cat['show_description']),
-					bool_from_yn($cat['show_rating']),
-					$cat['list_limit'],
-					bool_from_yn($cat['show_updated']));
-
-				echo "\n\t</ul>\n</li>\n";
-			}
-		}
-	}
-}
-
 // Loads, checks that Widgets are loaded and working
 function blogtxt_widgets_init() {
 	if ( !function_exists('register_sidebars') )
@@ -374,8 +333,6 @@ function blogtxt_widgets_init() {
 	unregister_widget_control('search');
 	register_sidebar_widget(__('Meta', 'blogtxt'), 'widget_blogtxt_meta', null, 'meta');
 	unregister_widget_control('meta');
-	register_sidebar_widget(__('Links', 'blogtxt'), 'widget_blogtxt_links', null, 'links');
-	unregister_widget_control('links');
 	register_sidebar_widget(array('Home Link', 'widgets'), 'widget_blogtxt_homelink', null, 'homelink');
 	register_widget_control(array('Home Link', 'widgets'), 'widget_blogtxt_homelink_control', 300, 125, 'homelink');
 	register_sidebar_widget(array('RSS Links', 'widgets'), 'widget_blogtxt_rsslinks', null, 'rsslinks');
@@ -467,7 +424,7 @@ function blogtxt_admin() { // Theme options menu
 	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('Blog.txt theme options saved. <a href="%s">View site &raquo;</a>', 'blogtxt'), get_bloginfo('home') . '/'); ?></p></div><?php }
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('Blog.txt theme options reset.', 'blogtxt'); ?></p></div><?php } ?>
 	
-<?php $installedVersion = "3.0.1"; // Checks that the latest version is running; if not, loads the external script below ?>
+<?php $installedVersion = "4.0"; // Checks that the latest version is running; if not, loads the external script below ?>
 <script src="http://www.plaintxt.org/ver-check/blogtxt-ver-check.php?version=<?php echo $installedVersion; ?>" type="text/javascript"></script>
 
 <div class="wrap" id="blogtxt-options">
@@ -658,7 +615,7 @@ function blogtxt_admin() { // Theme options menu
 	<p><?php printf(__('Please read the included <a href="%1$s" title="Open the readme.html" rel="enclosure" tabindex="45" id="readme">documentation</a> for more information about the <span class="theme-title">blog.txt</span> theme and its advanced features.', 'blogtxt'), get_template_directory_uri() . '/readme.html'); ?></p>
 
 	<h3 id="license" style="margin-bottom:-8px;"><?php _e('License', 'blogtxt'); ?></h3>
-	<p><?php printf(__('The <span class="theme-title">blog.txt</span> theme copyright &copy; %1$s by <span class="vcard"><a class="url xfn-me" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="n"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></span></a></span> is distributed with the <cite class="vcard"><a class="fn org url" href="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License" rel="license">GNU General Public License</a></cite>.', 'blogtxt'), gmdate('Y') ); ?></p>
+	<p><?php printf(__('The <span class="theme-title">blog.txt</span> theme copyright &copy; 2006&ndash;%1$s by <span class="vcard"><a class="url xfn-me" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="n"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></span></a></span> is distributed with the <cite class="vcard"><a class="fn org url" href="http://www.gnu.org/licenses/gpl.html" title="GNU General Public License" rel="license">GNU General Public License</a></cite>.', 'blogtxt'), gmdate('Y') ); ?></p>
 
 </div>
 

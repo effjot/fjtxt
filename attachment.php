@@ -55,6 +55,12 @@
 					<li><?php the_category('</li><li>') ?></li>
 				</ul>
 			</li>
+			<li class="entry-tags">
+				<h3><?php _e('Tags', 'blogtxt') ?></h3>
+				<ul>
+					<?php the_tags("<li>", "</li><li>", "</li>") ?>
+				</ul>
+			</li>
 		</ul>
 	</div><!-- attachment.php #primary .sidebar -->
 

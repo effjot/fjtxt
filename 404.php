@@ -7,12 +7,12 @@
 					<div class="entry-content">
 						<p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'blogtxt') ?></p>
 					</div>
-					<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
-						<div>
-							<input id="s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true); ?>" tabindex="1" size="40" />
-							<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" tabindex="2" />
-						</div>
-					</form>
+				<form id="error404-searchform" method="get" action="<?php bloginfo('home') ?>">
+					<div>
+						<input id="error404-s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true) ?>" size="40" />
+						<input id="error404-searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" />
+					</div>
+				</form>
 				</div><!-- #post-0 .post -->
 			</div><!-- .hfeed -->
 		</div><!-- #content -->

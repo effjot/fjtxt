@@ -16,19 +16,7 @@ Template Name: Links Page
 <?php the_content() ?>
 
 						<ul id="linkcats" class="content-column">
-<?php if ( function_exists('wp_list_bookmarks') ) : wp_list_bookmarks('categorize=true&title_before=<h3>&title_after=</h3>'); else : // Shows WordPress 2.1.x links, or . . . ?>
-<?php // Shows WordPress 2.0.x links
-$link_cats = $wpdb->get_results("SELECT cat_id, cat_name FROM $wpdb->linkcategories");
-foreach ($link_cats as $link_cat) :
-?>
-							<li id="linkcat-<?php echo $link_cat->cat_id; ?>">
-								<h3><?php echo $link_cat->cat_name; ?></h3>
-								<ul>
-									<?php wp_get_links($link_cat->cat_id); ?>
-								</ul>
-							</li>
-<?php endforeach ?>
-<?php endif ?>
+							<?php wp_list_bookmarks('title_before=<h3>&title_after=</h3>') ?>
 						</ul>
 <?php edit_post_link(__('Edit this entry.', 'blogtxt'),'<p class="entry-edit">','</p>') ?>
 

@@ -7,7 +7,7 @@
 			</li>
 	<?php } ?>
 
-			<?php wp_list_pages('title_li=<h3>'.__('Contents').'</h3>&sort_column=post_title' ) ?>
+			<?php wp_list_pages('title_li=<h3>'.__('Contents', 'blogtxt').'</h3>&sort_column=post_title' ) ?>
 
 	<?php if ( is_home() ) { ?>
 	<?php global $wpdb, $comments, $comment;

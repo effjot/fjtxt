@@ -16,7 +16,7 @@
 					</div>
 					<div class="entry-meta">
 						<span class="meta-sep">&para;</span>
-						<span class="entry-date">Posted <abbr class="published" title="<?php the_time('Y-m-d\TH:i:sO'); ?>"><?php unset($previousday); printf(__('%1$s', 'blogtxt'), the_date('d F Y', false)) ?></abbr></span>
+						<span class="entry-date"><?php _e('Posted', 'blogtxt') ?> <abbr class="published" title="<?php the_time('Y-m-d\TH:i:sO'); ?>"><?php unset($previousday); printf(__('%1$s', 'blogtxt'), the_date('d F Y', false)) ?></abbr></span>
 						<?php if ( !is_author() ) : blogtxt_author_link(); endif; ?>
 						<span class="meta-sep">&sect;</span>
 						<span class="entry-category"><?php if ( !is_category() ) { echo the_category(' &sect; '); } else { $other_cats = blogtxt_other_cats(' &sect; '); echo $other_cats; } ?></span>
@@ -42,12 +42,12 @@
 					<div class="entry-content">
 						<p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'blogtxt') ?></p>
 					</div>
-					<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
-						<div>
-							<input id="s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true); ?>" tabindex="1" size="40" />
-							<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" tabindex="2" />
-						</div>
-					</form>
+				<form id="noresults-searchform" method="get" action="<?php bloginfo('home') ?>">
+					<div>
+						<input id="noresults-s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true) ?>" size="40" />
+						<input id="noresults-searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" />
+					</div>
+				</form>
 				</div><!-- #post-0 .post -->
 
 <?php endif; ?>
