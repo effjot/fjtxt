@@ -37,7 +37,7 @@
 			<li id="categories">
 				<h3><?php _e('Category Archives', 'blogtxt'); ?></h3>
 				<ul>
-	<?php wp_list_cats('sort_column=name&hierarchical=1') ?>
+	<?php wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1') ?>
 
 				</ul>
 			</li>
@@ -53,7 +53,7 @@
 				<h3><?php bloginfo('name') ?></h3>
 				<ul>
 					<li id="copyright">&copy; <?php echo( date('Y') ); ?> <?php blogtxt_admin_hCard(); ?></li>
-					<li id="generator-link"><?php _e('Powered by <a href="http://wordpress.org/" title="WordPress">WordPress</a>', 'blogtxt') ?></li>
+					<li id="generator-link"><?php _e('Powered by <a href="http://wordpress.org/" title="WordPress" rel="generator">WordPress</a>', 'blogtxt') ?></li>
 					<li id="web-standards"><?php printf(__('Compliant <a href="http://validator.w3.org/check/referer" title="Valid XHTML">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/validator?profile=css2&amp;warning=2&amp;uri=%s" title="Valid CSS">CSS</a>', 'blogtxt'), get_bloginfo('stylesheet_url') ); ?></li>
 					<?php wp_register() ?>
 

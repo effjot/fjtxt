@@ -724,10 +724,12 @@ div.hfeed div.hentry{text-align:<?php echo $posttextalignment; ?>;}
 }
 add_action('admin_menu', 'blogtxt_add_admin');
 add_action('wp_head', 'blogtxt_wp_head');
-
 add_action('init', 'blogtxt_widgets_init');
 add_filter('archive_meta', 'wptexturize');
 add_filter('archive_meta', 'convert_smilies');
 add_filter('archive_meta', 'convert_chars');
 add_filter('archive_meta', 'wpautop');
+
+// Readies for translation.
+load_theme_textdomain('blogtxt')
 ?>
