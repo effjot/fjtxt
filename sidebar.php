@@ -33,13 +33,17 @@
 	<div id="secondary" class="sidebar">
 		<ul>
 	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
-	<?php if ( is_home() || is_category() ) { // Displays category archives on the home and category pages?>
+	<?php if ( is_home() || is_category() || is_tag() ) { // Displays category archives on the home and category pages?>
 			<li id="categories">
 				<h3><?php _e('Category Archives', 'blogtxt'); ?></h3>
 				<ul>
 	<?php wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1') ?>
 
 				</ul>
+			</li>
+			<li id="tag-cloud">
+				<h3><?php _e('Tag Archives', 'blogtxt'); ?></h3>
+				<p><?php wp_tag_cloud() ?></p>
 			</li>
 	<?php } if ( is_home() || is_page() ) { // Displays RSS and Meta links on the home and 'page' pages ?>
 			<li id="rss-links">

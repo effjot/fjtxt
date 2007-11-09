@@ -17,7 +17,7 @@ Template Name: Archives Page
 
 					<ul class="alignleft content-column">
 						<li>
-							<h3><?php _e('Archives by Category', 'barthelme') ?></h3>
+							<h3><?php _e('Archives by Category', 'blogtxt') ?></h3>
 							<ul>
 								<?php wp_list_categories('title_li=&sort_column=name&optioncount=1&feed=RSS&show_count=1') ?> 
 							</ul>
@@ -26,10 +26,17 @@ Template Name: Archives Page
 
 					<ul class="alignleft content-column">
 						<li>
-							<h3><?php _e('Archives by Month', 'barthelme') ?></h3>
+							<h3><?php _e('Archives by Month', 'blogtxt') ?></h3>
 							<ul>
 								<?php wp_get_archives('type=monthly&show_post_count=1') ?>
 							</ul>
+						</li>
+					</ul>
+
+					<ul class="full-column">
+						<li>
+							<h3><?php _e('Archives by Tag', 'blogtxt') ?></h3>
+							<p><?php wp_tag_cloud() ?></p>
 						</li>
 					</ul>
 <?php edit_post_link(__('Edit this entry.', 'blogtxt'),'<p class="entry-edit">','</p>') ?>
