@@ -72,9 +72,10 @@ div.entry-content p.attachment-name{margin:-0.5em 0 1em;}
 div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q{color:#494c5c;}
 div.entry-content strong,div.comments ol#comments strong{text-transform:uppercase;}
 div.entry-content ul ul{list-style:square;}
-div.entry-content ul.content-column li{list-style:none;margin:0;padding:0;}
+div.entry-content ul.content-column li,div.entry-content ul.full-column{list-style:none;margin:0;padding:0;}
 div.entry-content ul.content-column li h3{margin-bottom:0.3em;}
 div.entry-content ul.content-column li ul li{list-style:disc;margin:0 0 0 1.5em;}
+div.entry-content ul.full-column{clear:both;float:left;width:100%;line-height:175%;}
 div.entry-content ul.content-column,div.entry-content ul.content-column ul,div.formcontainer form#commentform,div.sidebar ul,div.sidebar ul li#blogtxt-recent-comments blockquote.comment-summary,div.sidebar ul li#blogtxt-recent-comments blockquote.comment-summary p{margin:0;padding:0;}
 div.formcontainer div.form-input{margin:0 0 1em;}
 div.formcontainer div.form-input input{width:20em;}
@@ -102,6 +103,9 @@ div.sidebar ul li ul li ul{margin:0 0 0.2em;}
 div.sidebar ul li ul li ul li{color:#9aa1ae;list-style:disc;margin:0 0 0 2em;}
 div.sidebar ul li#blogtxt-recent-comments span.comment-entry-title{font-size:0.8em;}
 div.sidebar ul li#blogtxt-recent-comments ul li{margin:0 0 2em;}
+div.sidebar ul li#tag-cloud{width:95%;overflow:hidden;}
+div.sidebar ul li#tag-cloud p{line-height:250%;}
+div.sidebar ul li#tag-cloud h3{margin-bottom:-1em;}
 div.sidebar ul li#calendar div#calendar_wrap{margin:0.5em 0 0;}
 div.sidebar ul li#calendar table#wp-calendar{text-align:center;width:75%;}
 div.sidebar ul li#calendar table#wp-calendar tbody a{font-size:1.1em;font-weight:700;}
