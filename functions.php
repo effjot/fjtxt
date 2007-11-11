@@ -15,9 +15,9 @@ function blogtxt_homelink() {
 	$blogtxt_is_front = get_option('page_on_front');
 
 	if ( $blogtxt_frontpage == 'page' ) {
-		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'barthelme') ?></a></li><?php }
+		if ( !is_page($blogtxt_is_front) || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'blogtxt') ?></a></li><?php }
 	} else {
-		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'barthelme') ?></a></li><?php }
+		if ( !is_home() || is_paged() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'blogtxt') ?></a></li><?php }
 	}
 }
 

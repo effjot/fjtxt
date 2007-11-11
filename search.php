@@ -23,7 +23,7 @@
 						<span class="meta-sep">&Dagger;</span>
 						<span class="entry-comments"><?php comments_popup_link(__('Comments (0)', 'blogtxt'), __('Comments (1)', 'blogtxt'), __('Comments (%)', 'blogtxt')) ?></span>
 						<span class="meta-sep">&deg;</span>
-						<span class="entry-tags"><?php the_tags(__('Tagged: ', 'barthelme'), ", ", "</span>") ?></span>
+						<span class="entry-tags"><?php the_tags(__('Tagged: ', 'blogtxt'), ", ", "</span>") ?></span>
 <?php edit_post_link(__('Edit', 'blogtxt'), "\t\t\t\t\t<span class=\"meta-sep\">&equiv;</span>\n\t\t\t\t\t<span class='entry-edit'>", "</span>\n"); ?>
 					</div>
 				</div><!-- .post -->

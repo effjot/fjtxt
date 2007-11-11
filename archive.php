@@ -39,7 +39,7 @@
 						<span class="meta-sep">&Dagger;</span>
 						<span class="entry-comments"><?php comments_popup_link(__('Comments (0)', 'blogtxt'), __('Comments (1)', 'blogtxt'), __('Comments (%)', 'blogtxt')) ?></span>
 						<span class="meta-sep">&deg;</span>
-						<span class="tag-links"><?php if ( !is_tag() ) { echo the_tags(__('Tagged: ', 'barthelme'), ", ", ""); } else { $other_tags = blogtxt_other_tags(', '); printf(__('Also tagged: %s', 'barthelme'), $other_tags); } ?></span>
+						<span class="tag-links"><?php if ( !is_tag() ) { echo the_tags(__('Tagged: ', 'blogtxt'), ", ", ""); } else { $other_tags = blogtxt_other_tags(', '); printf(__('Also tagged: %s', 'blogtxt'), $other_tags); } ?></span>
 <?php edit_post_link(__('Edit', 'blogtxt'), "\t\t\t\t\t<span class=\"meta-sep\">&equiv;</span>\n\t\t\t\t\t<span class='entry-edit'>", "</span>\n"); ?>
 					</div>
 				</div><!-- .post -->
