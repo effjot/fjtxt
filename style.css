@@ -1,10 +1,11 @@
 /*
 THEME NAME: blog.txt
 THEME URI: http://www.plaintxt.org/themes/blogtxt/
-DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme for WordPress 2.3+.
-VERSION: 4.1
+DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme for WordPress 2.5.x.
+VERSION: 4.5 (alpha 1)
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
+TAGS:  variable width, fixed width, two columns, widgets, theme options, custom header, white, typography, gray
 */
 a,a:link{outline:none;text-decoration:none;}
 div#header a,div#header a:link{color:#0d1117;}
@@ -39,6 +40,7 @@ div.comments h3{color:#4d5663;font-size:1.4em;font-weight:400;margin:4em 0 0.3em
 div.comments h3.comment-header span.comment-count{color:#7a818a;font-size:0.8em;padding-left:0.2em;}
 div.comments ol#comments{margin:0 0 0 2em;padding:0;}
 div.comments ol#comments li{margin:1em 0 5em;padding:0;}
+div.comments ol#comments li img.photo { float:left; margin:0 1em 0.5em 0; }
 div.comments ol#pingbacks{list-style:none;margin:1em 0 0 1.5em;padding:0;}
 div.comments ol#pingbacks li{border:1px solid #ccd0d6;color:#777;font-size:0.9em;list-style:none;margin:0 0 1.5em;padding:1em;}
 div.comments ol#pingbacks p{margin-bottom:0;}
@@ -84,7 +86,7 @@ div.formcontainer div.form-textarea-label{margin:1em 0 0.2em;}
 div.formcontainer textarea#comment{height:12em;margin:0 0 0.5em;overflow:auto;width:25em;}
 div.formcontainer,p#mustlogin{margin:0 0 1em 1.5em;}
 div.hentry div.archive-meta{font-style:italic;margin:0.5em 0 2em 2em;}
-div.hentry div.entry-meta{background:#f6f7f8;border-bottom:1px solid #ccd0d6;border-top:1px solid #ccd0d6;color:#677284;font-size:0.9em;margin:1em 0 5em;padding:0.2em 0.5em;text-align:center;}
+div.hentry div.entry-meta{background:#f6f7f8;border-bottom:1px solid #ccd0d6;border-top:1px solid #ccd0d6;color:#677284;font-size:0.9em;margin:1em 0 5em;padding:0.2em 0.5em;text-align:center;clear:both;}
 div.hentry div.entry-meta span.meta-sep{padding:0 0 0 0.3em;}
 div.hfeed .entry-title{font-size:1.6em;font-weight:400;line-height:133%;margin:0 0 -0.3em;text-transform:uppercase;}
 div.hfeed .page-title{color:#4d5663;font-size:1.7em;font-weight:400;line-height:133%;margin:2em 0 0;}
@@ -103,8 +105,7 @@ div.sidebar ul li ul li ul{margin:0 0 0.2em;}
 div.sidebar ul li ul li ul li{color:#9aa1ae;list-style:disc;margin:0 0 0 2em;}
 div.sidebar ul li#blogtxt-recent-comments span.comment-entry-title{font-size:0.8em;}
 div.sidebar ul li#blogtxt-recent-comments ul li{margin:0 0 2em;}
-div.sidebar ul li#tag-cloud{width:95%;overflow:hidden;}
-div.sidebar ul li#tag-cloud p{line-height:250%;}
+div.sidebar ul li#tag-cloud{width:95%;overflow:hidden;line-height:250%;background:transparent;}
 div.sidebar ul li#tag-cloud h3{margin-bottom:-1em;}
 div.sidebar ul li#calendar div#calendar_wrap{margin:0.5em 0 0;}
 div.sidebar ul li#calendar table#wp-calendar{text-align:center;width:75%;}

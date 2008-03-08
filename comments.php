@@ -28,7 +28,7 @@ foreach ( $comments as $comment )
 <?php foreach ($comments as $comment) : ?>
 <?php if ( get_comment_type() == "comment" ) : ?>
 		<li id="comment-<?php comment_ID() ?>" class="<?php blogtxt_comment_class() ?>">
-			<span class="comment-author vcard"><span class="fn n"><?php comment_author_link() ?></span> <?php _e('wrote:', 'blogtxt') ?></span>
+			<span class="comment-author vcard"><?php blogtxt_commenter_link() ?> <?php _e('wrote:', 'blogtxt') ?></span>
 			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your comment is awaiting moderation.', 'blogtxt') ?></span><?php endif; ?>
 <?php comment_text() ?>
 			<span class="comment-meta"><?php printf(__('Posted <abbr class="comment-published" title="%1$s">%2$s at %3$s</abbr> <a class="comment-permalink" href="%4$s" title="Permalink to this comment">&para;</a>', 'blogtxt'),

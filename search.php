@@ -4,7 +4,7 @@
 
 <?php if (have_posts()) : ?>
 
-				<h2 class="page-title"><?php _e('Search Results', 'blogtxt') ?> <span class="page-subtitle"><?php printf(__('%1$s', 'blogtxt'), wp_specialchars(stripslashes($_GET['s']), true) ); ?></span></h2>
+				<h2 class="page-title"><?php _e('Search Results', 'blogtxt') ?> <span class="page-subtitle"><?php the_search_query() ?></span></h2>
 
 <?php while (have_posts()) : the_post(); ?>
 
@@ -46,7 +46,7 @@
 					</div>
 				<form id="noresults-searchform" method="get" action="<?php bloginfo('home') ?>">
 					<div>
-						<input id="noresults-s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true) ?>" size="40" />
+						<input id="noresults-s" name="s" type="text" value="<?php the_search_query() ?>" size="40" />
 						<input id="noresults-searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Search', 'blogtxt') ?>" />
 					</div>
 				</form>
