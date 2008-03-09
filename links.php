@@ -15,8 +15,9 @@ Template Name: Links Page
 					<div class="entry-content">
 <?php the_content() ?>
 
-						<ul id="linkcats" class="content-column">
-							<?php wp_list_bookmarks('title_before=<h3>&title_after=</h3>') ?>
+						<ul id="linkcats" class="xoxo">
+<?php wp_list_bookmarks('title_before=<h3>&title_after=</h3>&category_before=<li id="page-%id" class="%class">&after=</p></li>&between=<p>&show_description=1') ?>
+
 						</ul>
 <?php edit_post_link(__('Edit this entry.', 'blogtxt'),'<p class="entry-edit">','</p>') ?>
 

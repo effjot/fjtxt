@@ -1,13 +1,13 @@
 	<div id="primary" class="sidebar">
 		<ul>
 	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
-	<?php if ( !is_home() || is_paged() ) { // Displays a home link everywhere except the home page ?>
+	<?php if ( !is_front_page() || is_paged() ) { // Displays a home link everywhere except the home page ?>
 			<li id="home-link">
 				<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'blogtxt'); ?></a></h3>
 			</li>
 	<?php } ?>
 
-			<?php wp_list_pages('title_li=<h3>'.__('Contents', 'blogtxt').'</h3>&sort_column=post_title' ) ?>
+			<?php wp_list_pages('title_li=<h3>'.__('Contents', 'blogtxt').'</h3>&sort_column=menu_order' ) ?>
 
 	<?php if ( is_home() ) { ?>
 	<?php global $wpdb, $comments, $comment;

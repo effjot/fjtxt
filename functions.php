@@ -1,9 +1,9 @@
 <?php
 // Produces links for every page just below the header
 function blogtxt_globalnav() {
-	echo "<div id=\"globalnav\"><ul id=\"menu\">";
+	echo "\t\t\t<div id=\"globalnav\"><ul id=\"menu\">";
 	if ( !is_front_page() ) { ?><li class="page_item_home home-link"><a href="<?php bloginfo('home'); ?>/" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>" rel="home"><?php _e('Home', 'blogtxt') ?></a></li><?php }
-	$menu = wp_list_pages('title_li=&sort_column=post_title&echo=0');
+	$menu = wp_list_pages('title_li=&sort_column=menu_order&echo=0'); // Params for the page list in header.php
 	echo str_replace(array("\r", "\n", "\t"), '', $menu);
 	echo "</ul></div>\n";
 }
@@ -441,7 +441,7 @@ function blogtxt_add_admin() {
 		}
 		add_action('admin_head', 'blogtxt_admin_head');
 	}
-	add_theme_page( __( 'blog.txt Theme Options', 'blogtxt' ), __( 'Theme Options', 'blogtxt' ), 'edit_themes', basename(__FILE__), 'blogtxt_admin' );
+	add_theme_page( __( 'Blog.txt Theme Options', 'blogtxt' ), __( 'Theme Options', 'blogtxt' ), 'edit_themes', basename(__FILE__), 'blogtxt_admin' );
 }
 
 function blogtxt_donate() { 
@@ -472,8 +472,7 @@ function blogtxt_admin_head() {
 	.times{font-family:'times new roman',times,serif;}
 	.trebuchet{font-family:'trebuchet ms',helvetica,sans-serif;}
 	.verdana{font-family:verdana,geneva,sans-serif;}
-	form#paypal{float:right;margin:0.5em 0 0.5em 2em;}
-	form#paypal span{font-size:90%;color:#999;}
+	form#paypal{float:right;margin:1em 0 0.5em 1em;}
 /*]]>*/
 </style>
 <?php
@@ -484,7 +483,7 @@ function blogtxt_admin() { // Theme options menu
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('Blog.txt theme options reset.', 'blogtxt'); ?></p></div><?php } ?>
 
 <div class="wrap" id="blogtxt-options">
-	<h2><?php _e('blog.txt Theme Options', 'blogtxt'); ?></h2>
+	<h2><?php _e('Blog.txt Theme Options', 'blogtxt'); ?></h2>
 	<?php printf( __('%1$s<p>Thanks for selecting the <a href="http://www.plaintxt.org/themes/blogtxt/" title="blog.txt theme for WordPress">blog.txt</a> theme by <span class="vcard"><a class="url fn n" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>. Please read the included <a href="%2$s" title="Open the readme.html" rel="enclosure" id="readme">documentation</a> for more information about the blog.txt and its advanced features. <strong>If you find this theme useful, please consider <label for="paypal">donating</label>.</strong> You can customize blog.txt by modifying the options below. You must click on <i><u>S</u>ave Options</i> to save any changes. You can also discard your changes and reload the default settings by clicking on <i><u>R</u>eset</i>.</p>', 'blogtxt'), blogtxt_donate(), get_template_directory_uri() . '/readme.html' ); ?>
 
 	<form action="<?php echo wp_specialchars( $_SERVER['REQUEST_URI'] ) ?>" method="post">
@@ -638,11 +637,6 @@ function blogtxt_admin() { // Theme options menu
 
 // Loads settings for the theme options to use
 function blogtxt_wp_head() {
-	global $wp_version;
-
-	if ( version_compare($wp_version, '2.1.10', '>') )
-		echo "\t", '<link rel="introspection" type="application/atomserv+xml" title="' . get_bloginfo('name') .__(" Atom API"). '" href="' . get_bloginfo('url') . '/wp-app.php" />', "\n";
-
 	function blogtxt_author_link() { // Option to show the author link, or not
 		global $wpdb, $authordata;
 		if ( get_settings('blogtxt_authorlink') == "" ) {
@@ -665,7 +659,6 @@ function blogtxt_wp_head() {
 			}
 		};
 	}
-
 	if ( get_settings('blogtxt_basefontsize') == "" ) {
 		$basefontsize = '80%';
 	} else {
@@ -717,13 +710,13 @@ function blogtxt_wp_head() {
 	};
 
 ?>
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/layouts/<?php echo $layouttype; ?>" />
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('template_directory'); ?>/layouts/<?php echo $layouttype; ?>" />
 
 <style type="text/css" media="screen">
 /*<![CDATA[*/
 /* CSS inserted by theme options */
 body{font-size:<?php echo $basefontsize; ?>;}
-body,div.comments h3.comment-header span.comment-count{font-family:<?php echo $basefontfamily; ?>;}
+body,div.comments h3.comment-header span.comment-count,div.entry-content ul.xoxo li.hentry span.entry-title{font-family:<?php echo $basefontfamily; ?>;}
 div#wrapper{width:<?php echo $layoutwidth; ?>;}
 div.hfeed .entry-title,div.hfeed .page-title,div.comments h3,div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6,div#header div#blog-description,div#header div.archive-description{font-family:<?php echo $headingfontfamily; ?>;}
 div#header h1#blog-title,div.sidebar ul li h3{font-family:<?php echo $blogtitlefontfamily; ?>;}
