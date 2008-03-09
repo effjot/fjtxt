@@ -172,7 +172,7 @@
 		<li id="customizing">
 			<h3>Customizing the sidebars</h3>
 			<p>For complete control over the sidebar without editing the theme files, use the <i>Design &rsaquo; Widgets</i> menu options. Here you have complete control over the sidebar content.</p>
-			<p>The Barthelme theme will correctly display all of the default widgets. There are, however, hundreds of other widgets available that do all sorts of things; therefore, some widgets will require additional CSS declarations to be added to the <code>style.css</code> file.</p>
+			<p>The blog.txt theme will correctly display all of the default widgets. There are, however, hundreds of other widgets available that do all sorts of things; therefore, some widgets will require additional CSS declarations to be added to the <code>style.css</code> file.</p>
 			<p>Unforunately I can't write <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" title="CSS on Wikipedia">CSS</a> for other widgets/plugins. I can't help you <em>learn</em> CSS, but I can help you <em>use</em> CSS.</p>
 			<p class="rubric">For help learning CSS, visit:</p>
 			<ul>
@@ -182,7 +182,7 @@
 				<li><a href="http://www.w3schools.com/css/default.asp" title="W3's CSS School">W3's CSS School</a></li>
 				<li><a href="http://www.stylegala.com/features/css-reference/" title="Stylegala's CSS Reference">Stylegala's CSS Reference</a></li>
 			</ul>
-			<p>The blog.txt theme automatically replaces a few of the default widgets that come with the Widgets plugin, e.g., Meta, Links, Search, with ones that match the default Barthelme sidebar style.</p>
+			<p>The blog.txt theme automatically replaces a few of the default widgets that come with the Widgets plugin, e.g., Meta, Links, Search, with ones that match the default blog.txt sidebar style.</p>
 			<p>Similarly the theme also automatically loads some of its own widgets, e.g., RSS Links, Home Link. This allows the default blog.txt sidebar to be completely replicated using the Widgets.</p>
 		</li>
 		<li id="special">
@@ -199,7 +199,7 @@
 			</ol>
 			<p>In item a, the <code>strong</code> element denotes strong emphasis and adds meaning/context to the words. In item b, the <code>b</code> element simply bolds the text and is purely cosmetic.</p>
 			<p>Imagine if someone were reading your blog aloud. You would want them to shout "stop doing that!" but not to shout "readme.html!" right?</p>
-			<p>Below are examples of how the <code>em</code>, <code>strong</code> and <code>b</code>, <code>i</code> elements have been styled for Barthelme:</p>
+			<p>Below are examples of how the <code>em</code>, <code>strong</code> and <code>b</code>, <code>i</code> elements have been styled for blog.txt:</p>
 			<dl id="emphasis">
 				<dt class="def-head">Emphasis</dt>
 				<dd class="def-rubric">Used to add meaning and context to text</dd>
@@ -327,11 +327,11 @@
 			</blockquote>
 			<p>You can read more about developing with web standards at <a href="http://www.456bereastreet.com/lab/developing_with_web_standards/webstandards/" title="Developing with web standards">456 Berea Street</a>.</p>
 			<h4>hAtom microformat</h4>
-			<p>In addition to XHTML and CSS web standards, version 3 of the blog.txt theme implements the <a href="http://microformats.org/wiki/hatom" title="hAtom - Microformats">hAtom 0.1</a> microformat. <a href="http://microformats.org/" title="Microformats">Microformats</a> are markup that express semantic information in webpages. Programs can extract information from webpages marked up in a microformat much like feed readers extract information from Atom or RSS syndicated feeds.</p>
-			<p>For a thorough discussion of the significance of hAtom in blogging, read the <a href="http://wordpress.com/forums/topic.php?id=3329" title="Challenge to geeks: Explain hAtom">WordPress.com hAtom support thread</a>.</p>
+			<p>In addition to XHTML and CSS web standards, version 3 of the blog.txt theme implements the <a href="http://microformats.org/wiki/hatom" title="hAtom - Microformats">hAtom 0.1</a> microformat. <a href="http://microformats.org/" title="Microformats">Microformats</a> are markup that express semantic information in webpages.</p>
+			<p>Programs can extract information from webpages marked up in a microformat much like feed readers extract information from Atom or RSS syndicated feeds.</p>
 			<h4>hCard microformat</h4>
-			<p><a href="http://microformats.org/wiki/hcard" title="hCard - Microformats">hCard</a> is a microformat that expresses basic contact information much like a <a href="http://en.wikipedia.org/wiki/VCard" title="vCard - Wikipedia">vCard</a>, except within your blog itself. Basically this is done by using <code>&lt;span&gt;</code>'s with certain class attributes.</p>
-			<p>The first name, last name, and website information for the <i>admin</i> user (as set in the <i>Users &rsaquo; Your Profile</i> submenu) is automatically used to create an hCard that is placed in the footer following the copyright information (with the function <code>blogtxt_admin_hCard() </code>).</p>
+			<p><a href="http://microformats.org/wiki/hcard" title="hCard - Microformats">hCard</a> is a microformat that expresses basic contact information much like a <a href="http://en.wikipedia.org/wiki/VCard" title="vCard - Wikipedia">vCard</a>, except within your blog itself. Basically this is done by using <code>span</code>'s with certain class attributes.</p>
+			<p>The first name, last name, and website information for the <i>admin</i> user is automatically used to create an hCard that is placed in the footer and followed by basic copyright information.</p>
 			<p>The hCard microformat is used throughout the theme, actually, for author links, bylines, and comment authors. You don't need to do anything, as basically hAtom and hCard are ways of making your blog <a href="http://kitchen.technorati.com/search/" title="Technorati Microformats Search">more accessible</a>.</p>
 		</li>
 		<li id="license">
@@ -346,9 +346,9 @@
 		</li>
 		<li id="development">
 			<h3>Development and help</h3>
-			<p>If something isn't working correctly with this theme, please visit <a href="http://code.google.com/p/blogtxt/" title="blog.txt - Google Code">blog.txt on Google Code</a> to file issues, report problems, help create documentation, etc., because the more everyone shares, the better things can be.</p>
-			<p>You can also access the blog.txt <a href="http://en.wikipedia.org/wiki/Subversion" title="Subversion - Wikipedia">Subversion</a> repo, which hosts pre-release fixes and allows changes to be tracked. If you would like to directly assist in the development of blog.txt <em>and</em> are familiar with Subversion, just let me know.</p>
-			<p>Please feel free to send me an <a href="http://www.plaintxt.org/contact/" title="Contact Scott">email</a> if you're having a problem; however, I will ask that you start an issue on the blog.txt development website before I start problem solving. Thanks.</p>
+			<p>If something isn't working correctly with this theme, please visit <a href="http://code.google.com/p/blogtxt/" title="Blog.txt - Google Code">blog.txt on Google Code</a>, the project home, to file issues, report problems, help create documentation, etc., because the more everyone shares, the better things can be.</p>
+			<p>You can also access the blog.txt <a href="http://en.wikipedia.org/wiki/Subversion" title="Subversion - Wikipedia">Subversion</a> repo, which hosts pre-release fixes and allows changes to be tracked. Please ignore if unfamiliar with Subversion.</p>
+			<p>Please feel free to send me an <a href="http://www.plaintxt.org/contact/" title="Contact Scott">email</a> if you're having a problem; however, I will ask that you start an issue on the Barthelme project home (see above) before problem solving. Thanks.</p>
 		</li>
 		<li id="credits">
 			<h3>Credits and thanks</h3>

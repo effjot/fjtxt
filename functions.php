@@ -48,19 +48,19 @@ function blogtxt_body_class( $print = true ) {
 		rewind_posts();
 	}
 
-	else if ( is_author() ) {
+	elseif ( is_author() ) {
 		$author = $wp_query->get_queried_object();
 		$c[] = 'author';
 		$c[] = 'author-' . $author->user_nicename;
 	}
 	
-	else if ( is_category() ) {
+	elseif ( is_category() ) {
 		$cat = $wp_query->get_queried_object();
 		$c[] = 'category';
 		$c[] = 'category-' . $cat->category_nicename;
 	}
 
-	else if ( is_page() ) {
+	elseif ( is_page() ) {
 		the_post();
 		$c[] = 'page';
 		$c[] = 'page-author-' . get_the_author_login();
@@ -344,7 +344,7 @@ function widget_blogtxt_recent_comments_control() {
 ?>
 			<p><label for="rc-title"><?php _e( 'Title:', 'blogtxt' ) ?> <input class="widefat" id="rc-title" name="rc-title" type="text" value="<?php echo $rc_title; ?>" /></label></p>
 			<p>
-				<label for="rc-count"><?php _e('Number of comments to show:'); ?> <input style="width:25px;text-align:center;" id="rc-count" name="rc-count" type="text" value="<?php echo $rc_count; ?>" /></label>
+				<label for="rc-count"><?php _e('Number of comments to show:', 'blogtxt'); ?> <input style="width:25px;text-align:center;" id="rc-count" name="rc-count" type="text" value="<?php echo $rc_count; ?>" /></label>
 				<br />
 				<small><?php _e('(at most 15)'); ?></small>
 			</p>
@@ -424,7 +424,7 @@ function blogtxt_add_admin() {
 			update_option( 'blogtxt_posttextalignment', strip_tags( stripslashes( $_REQUEST['bt_posttextalignment'] ) ) );
 			header("Location: themes.php?page=functions.php&saved=true");
 			die;
-		} else if ( 'reset' == $_REQUEST['action'] ) {
+		} elseif ( 'reset' == $_REQUEST['action'] ) {
 			check_admin_referer('blogtxt_reset_options');
 			delete_option('blogtxt_authorlink');
 			delete_option('blogtxt_basefontfamily');
@@ -493,7 +493,7 @@ function blogtxt_admin() { // Theme options menu
 			<tr valign="top">
 				<th scope="row"><label for="bt_basefontsize"><?php _e('Base font size', 'blogtxt'); ?></label></th> 
 				<td>
-					<input id="bt_basefontsize" name="bt_basefontsize" type="text" class="text" value="<?php if ( get_settings('blogtxt_basefontsize') == "" ) { echo "80%"; } else { echo get_settings('blogtxt_basefontsize'); } ?>" tabindex="1" size="10" />
+					<input id="bt_basefontsize" name="bt_basefontsize" type="text" class="text" value="<?php if ( get_settings('blogtxt_basefontsize') == "" ) { echo "80%"; } else { echo attribute_escape( get_settings('blogtxt_basefontsize') ); } ?>" tabindex="1" size="10" />
 					<p class="info"><?php _e('The base font size globally affects the size of text throughout your blog. This can be in any unit (e.g., px, pt, em), but I suggest using a percentage (%). Default is <span>80%</span>.', 'blogtxt'); ?></p>
 				</td>
 			</tr>
@@ -563,7 +563,7 @@ function blogtxt_admin() { // Theme options menu
 			<tr valign="top">
 				<th scope="row"><label for="bt_layoutwidth"><?php _e('Layout width', 'blogtxt'); ?></label></th> 
 				<td>
-					<input id="bt_layoutwidth" name="bt_layoutwidth" type="text" class="text" value="<?php if ( get_settings('blogtxt_layoutwidth') == "" ) { echo "60em"; } else { echo get_settings('blogtxt_layoutwidth'); } ?>" tabindex="38" size="10" />
+					<input id="bt_layoutwidth" name="bt_layoutwidth" type="text" class="text" value="<?php if ( get_settings('blogtxt_layoutwidth') == "" ) { echo "60em"; } else { echo attribute_escape( get_settings('blogtxt_layoutwidth') ); } ?>" tabindex="38" size="10" />
 					<p class="info"><?php _e('The layout width determines the normal width of the entire layout. This can be in any unit (e.g., px, pt, %). Default is <span>60em</span>.', 'blogtxt'); ?></p>
 				</td>
 			</tr>
@@ -618,7 +618,7 @@ function blogtxt_admin() { // Theme options menu
 		<p class="submit">
 			<input name="save" type="submit" value="<?php _e('Save Options', 'blogtxt'); ?>" tabindex="43" accesskey="S" />  
 			<input name="action" type="hidden" value="save" />
-			<input name="page_options" type="hidden" value="" />
+			<input name="page_options" type="hidden" value="bt_authorlink,bt_basefontfamily,bt_basefontsize,bt_blogtitlefontfamily,bt_headingfontfamily,bt_layoutalignment,bt_layouttype,bt_layoutwidth,bt_miscfontfamily,bt_posttextalignment" />
 		</p>
 	</form>
 	<h3 id="reset"><?php _e('Reset Options', 'blogtxt'); ?></h3>
@@ -628,7 +628,7 @@ function blogtxt_admin() { // Theme options menu
 		<p class="submit">
 			<input name="reset" type="submit" value="<?php _e('Reset Options', 'blogtxt'); ?>" onclick="return confirm('<?php _e('Click OK to reset. Any changes to these theme options will be lost!', 'blogtxt'); ?>');" tabindex="44" accesskey="R" />
 			<input name="action" type="hidden" value="reset" />
-			<input name="page_options" type="hidden" value="" />
+			<input name="page_options" type="hidden" value="bt_authorlink,bt_basefontfamily,bt_basefontsize,bt_blogtitlefontfamily,bt_headingfontfamily,bt_layoutalignment,bt_layouttype,bt_layoutwidth,bt_miscfontfamily,bt_posttextalignment" />
 		</p>
 	</form>
 </div>
@@ -645,13 +645,13 @@ function blogtxt_wp_head() {
 			} else {
 				echo '<span class="meta-sep">&dagger;</span> <span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			}
-		} else if ( get_settings('blogtxt_authorlink') =="displayed" ) {
+		} elseif ( get_settings('blogtxt_authorlink') =="displayed" ) {
 			if ( is_single() || is_page() ) {
 				return '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			} else {
 				echo '<span class="meta-sep">&dagger;</span> <span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			}
-		} else if ( get_settings('blogtxt_authorlink') =="hidden" ) {
+		} elseif ( get_settings('blogtxt_authorlink') =="hidden" ) {
 			if ( is_single() || is_page() ) {
 				return '<span class="entry-author author vcard"><span class="fn n">' . get_the_author() . '</span></span>';
 			} else {
@@ -696,11 +696,11 @@ function blogtxt_wp_head() {
 	};
 	if ( get_settings('blogtxt_layoutalignment') == "" ) {
 		$layoutalignment = 'body div#wrapper{margin:5em 0 0 7em;}';
-		} else if ( get_settings('blogtxt_layoutalignment') =="center" ) {
+		} elseif ( get_settings('blogtxt_layoutalignment') =="center" ) {
 			$layoutalignment = 'body div#wrapper{margin:5em auto 0 auto;padding:0 1em;}';
-		} else if ( get_settings('blogtxt_layoutalignment') =="left" ) {
+		} elseif ( get_settings('blogtxt_layoutalignment') =="left" ) {
 			$layoutalignment = 'body div#wrapper{margin:5em 0 0 7em;}';
-		} else if ( get_settings('blogtxt_layoutalignment') =="right" ) {
+		} elseif ( get_settings('blogtxt_layoutalignment') =="right" ) {
 			$layoutalignment = 'body div#wrapper{margin:5em 3em 0 auto;}';
 	};
 	if ( get_settings('blogtxt_posttextalignment') == "" ) {
@@ -712,17 +712,17 @@ function blogtxt_wp_head() {
 ?>
 	<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('template_directory'); ?>/layouts/<?php echo $layouttype; ?>" />
 
-<style type="text/css" media="screen">
+<style type="text/css" media="screen,projection">
 /*<![CDATA[*/
-/* CSS inserted by theme options */
-body{font-size:<?php echo $basefontsize; ?>;}
-body,div.comments h3.comment-header span.comment-count,div.entry-content ul.xoxo li.hentry span.entry-title{font-family:<?php echo $basefontfamily; ?>;}
-div#wrapper{width:<?php echo $layoutwidth; ?>;}
-div.hfeed .entry-title,div.hfeed .page-title,div.comments h3,div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6,div#header div#blog-description,div#header div.archive-description{font-family:<?php echo $headingfontfamily; ?>;}
-div#header h1#blog-title,div.sidebar ul li h3{font-family:<?php echo $blogtitlefontfamily; ?>;}
-body input#s,div.entry-content div.page-link,div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q,div.formcontainer div.form-input input,div.formcontainer div.form-textarea textarea,div.hentry div.entry-meta,div.sidebar{font-family:<?php echo $miscfontfamily; ?>;}
-div.hfeed div.hentry{text-align:<?php echo $posttextalignment; ?>;}
-<?php echo $layoutalignment; ?>
+/* CSS inserted by blog.txt theme options */
+	body{font-size:<?php echo $basefontsize; ?>;}
+	body,div.comments h3.comment-header span.comment-count,div.entry-content ul.xoxo li.hentry span.entry-title{font-family:<?php echo $basefontfamily; ?>;}
+	div#wrapper{width:<?php echo $layoutwidth; ?>;}
+	div.hfeed .entry-title,div.hfeed .page-title,div.comments h3,div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6,div#header div#blog-description,div#header div.archive-description{font-family:<?php echo $headingfontfamily; ?>;}
+	div#header h1#blog-title,div.sidebar ul li h3{font-family:<?php echo $blogtitlefontfamily; ?>;}
+	body input#s,div.entry-content div.page-link,div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q,div.formcontainer div.form-input input,div.formcontainer div.form-textarea textarea,div.hentry div.entry-meta,div.sidebar{font-family:<?php echo $miscfontfamily; ?>;}
+	div.hfeed div.hentry{text-align:<?php echo $posttextalignment; ?>;}
+	<?php echo $layoutalignment; ?>
 
 /*]]>*/
 </style>
