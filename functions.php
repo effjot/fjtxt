@@ -479,12 +479,12 @@ function blogtxt_admin_head() {
 }
 
 function blogtxt_admin() { // Theme options menu 
-	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('Blog.txt theme options saved. <a href="%s">View site</a>', 'blogtxt'), get_bloginfo('home') . '/'); ?></p></div><?php }
+	if ( $_REQUEST['saved'] ) { ?><div id="message1" class="updated fade"><p><?php printf(__('Blog.txt theme options saved. <a href="%s">View site.</a>', 'blogtxt'), get_bloginfo('home') . '/'); ?></p></div><?php }
 	if ( $_REQUEST['reset'] ) { ?><div id="message2" class="updated fade"><p><?php _e('Blog.txt theme options reset.', 'blogtxt'); ?></p></div><?php } ?>
 
 <div class="wrap" id="blogtxt-options">
 	<h2><?php _e('Blog.txt Theme Options', 'blogtxt'); ?></h2>
-	<?php printf( __('%1$s<p>Thanks for selecting the <a href="http://www.plaintxt.org/themes/blogtxt/" title="blog.txt theme for WordPress">blog.txt</a> theme by <span class="vcard"><a class="url fn n" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>. Please read the included <a href="%2$s" title="Open the readme.html" rel="enclosure" id="readme">documentation</a> for more information about the blog.txt and its advanced features. <strong>If you find this theme useful, please consider <label for="paypal">donating</label>.</strong> You can customize blog.txt by modifying the options below. You must click on <i><u>S</u>ave Options</i> to save any changes. You can also discard your changes and reload the default settings by clicking on <i><u>R</u>eset</i>.</p>', 'blogtxt'), blogtxt_donate(), get_template_directory_uri() . '/readme.html' ); ?>
+	<?php printf( __('%1$s<p>Thanks for selecting the <a href="http://www.plaintxt.org/themes/blogtxt/" title="blog.txt theme for WordPress">blog.txt</a> theme by <span class="vcard"><a class="url fn n" href="http://scottwallick.com/" title="scottwallick.com" rel="me designer"><span class="given-name">Scott</span> <span class="additional-name">Allan</span> <span class="family-name">Wallick</span></a></span>. Please read the included <a href="%2$s" title="Open the readme.html" rel="enclosure" id="readme">documentation</a> for more information about the blog.txt and its advanced features. <strong>If you find this theme useful, please consider <label for="paypal">donating</label>.</strong> You must click on <i><u>S</u>ave Options</i> to save any changes. You can also discard your changes and reload the default settings by clicking on <i><u>R</u>eset</i>.</p>', 'blogtxt'), blogtxt_donate(), get_template_directory_uri() . '/readme.html' ); ?>
 
 	<form action="<?php echo wp_specialchars( $_SERVER['REQUEST_URI'] ) ?>" method="post">
 		<?php wp_nonce_field('blogtxt_save_options'); echo "\n"; ?>
