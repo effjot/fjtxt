@@ -176,10 +176,15 @@ function blogtxt_other_tags($glue) {
 
 // Produces an avatar image with the hCard-compliant photo class
 function blogtxt_commenter_link() {
-	$blogtxt_commenter = str_replace( "<a href", "<a class='url' href", get_comment_author_link() );
+	$commenter = get_comment_author_link();
+	if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
+		$commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
+	} else {
+		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
+	}
 	$email = get_comment_author_email();
-	$blogtxt_avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", 32 ) );
-	echo $blogtxt_avatar . '<span class="fn n">' . $blogtxt_commenter . '</span>';
+	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "64" ) );
+	echo $avatar . '<span class="fn n">' . $commenter . '</span>';
 }
 
 // Loads a blog.txt-style Search widget

@@ -2,7 +2,7 @@
 THEME NAME: blog.txt
 THEME URI: http://www.plaintxt.org/themes/blogtxt/
 DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme. For WordPress 2.5.x.
-VERSION: 4.5
+VERSION: 4.5.1
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
 TAGS:  variable width, fixed width, two columns, widgets, theme options, white, typography, gray
@@ -114,7 +114,7 @@ div.sidebar ul li#calendar div#calendar_wrap{margin:0.5em 0 0;}
 div.sidebar ul li#calendar table#wp-calendar{text-align:center;width:75%;}
 div.sidebar ul li#calendar table#wp-calendar tbody a{font-size:1.1em;font-weight:700;}
 div.sidebar ul li#google-search div form#gsearch,div.sidebar ul li#calendar table#wp-calendar caption{text-align:left;}
-div.sidebar ul li#rss-links ul li a{background:url(images/feed.png) no-repeat left center;padding:0 0 0 15px;}
+div.sidebar ul li#rss_links ul li a{background:url(images/feed.png) no-repeat left center;padding:0 0 0 15px;}
 div.sidebar ul li#search form#searchform{margin:0.2em 0 0;padding:0;}
 div.sidebar ul li#search input#s{width:7em;}
 div.sidebar ul li.entry-interact ul li.comment-link a{background:url(images/comments.png) no-repeat left center;padding:0 0 0 15px;}

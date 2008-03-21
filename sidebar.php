@@ -46,7 +46,7 @@
 				<p><?php wp_tag_cloud() ?></p>
 			</li>
 	<?php } if ( is_home() || is_page() ) { // Displays RSS and Meta links on the home and 'page' pages ?>
-			<li id="rss-links">
+			<li id="rss_links">
 				<h3><?php _e('RSS Feeds', 'blogtxt') ?></h3>
 				<ul>
 					<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'blogtxt') ?></a></li>
