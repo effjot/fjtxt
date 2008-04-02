@@ -724,22 +724,22 @@ function blogtxt_wp_head() {
 	if ( get_settings('blogtxt_basefontfamily') == "" ) {
 		$basefontfamily = 'georgia,times,serif';
 	} else {
-		$basefontfamily = attribute_escape( stripslashes( get_settings('blogtxt_basefontfamily') ) ); 
+		$basefontfamily = wp_specialchars( stripslashes( get_settings('blogtxt_basefontfamily') ) ); 
 	};
 	if ( get_settings('blogtxt_headingfontfamily') == "" ) {
 		$headingfontfamily = 'arial,helvetica,sans-serif';
 	} else {
-		$headingfontfamily = attribute_escape( stripslashes( get_settings('blogtxt_headingfontfamily') ) ); 
+		$headingfontfamily = wp_specialchars( stripslashes( get_settings('blogtxt_headingfontfamily') ) ); 
 	};
 	if ( get_settings('blogtxt_blogtitlefontfamily') == "" ) {
 		$blogtitlefontfamily = '\'times new roman\',times,serif';
 	} else {
-		$blogtitlefontfamily = attribute_escape( stripslashes( get_settings('blogtxt_blogtitlefontfamily') ) ); 
+		$blogtitlefontfamily = wp_specialchars( stripslashes( get_settings('blogtxt_blogtitlefontfamily') ) ); 
 	};
 	if ( get_settings('blogtxt_miscfontfamily') == "" ) {
 		$miscfontfamily = 'verdana,geneva,sans-serif';
 	} else {
-		$miscfontfamily = attribute_escape( stripslashes( get_settings('blogtxt_miscfontfamily') ) ); 
+		$miscfontfamily = wp_specialchars( stripslashes( get_settings('blogtxt_miscfontfamily') ) ); 
 	};
 	if ( get_settings('blogtxt_layoutwidth') == "" ) {
 		$layoutwidth = '60em';
