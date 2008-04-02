@@ -82,7 +82,10 @@ function blogtxt_post_class( $print = true ) {
 	$c = array('hentry', "p$blogtxt_post_alt", $post->post_type, $post->post_status);
 
 	$c[] = 'author-' . get_the_author_login();
-	
+
+	if ( is_attachment() )
+		$c[] = 'attachment';
+
 	foreach ( (array) get_the_category() as $cat )
 		$c[] = 'category-' . $cat->category_nicename;
 
@@ -183,8 +186,57 @@ function blogtxt_commenter_link() {
 		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
 	}
 	$email = get_comment_author_email();
-	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "64" ) );
+	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "16" ) );
 	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
+}
+
+// Our gallery short code; styles used in style.css file
+function blogtxt_gallery($attr) {
+	global $post;
+	extract( shortcode_atts(
+		array(
+			'orderby'    => 'menu_order ASC, ID ASC',
+			'id'         => $post->ID,
+			'itemtag'    => 'dl',
+			'icontag'    => 'dt',
+			'captiontag' => 'dd',
+			'columns'    => 3,
+			'size'       => 'thumbnail',
+		),
+		$attr ) );
+	$id = intval($id);
+	$orderby = addslashes($orderby);
+	$attachments = get_children("post_parent=$id&post_type=attachment&post_mime_type=image&orderby=\"{$orderby}\"");
+	if ( empty($attachments) )
+		return '';
+	if ( is_feed() ) {
+		$output = "\n";
+		foreach ( $attachments as $id => $attachment )
+			$output .= wp_get_attachment_link( $id, $size, true ) . "\n";
+		return $output;
+	}
+	$listtag = tag_escape($listtag);
+	$itemtag = tag_escape($itemtag);
+	$captiontag = tag_escape($captiontag);
+	$columns = intval($columns);
+	$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
+	$output = "<div class='gallery gallery-set-1'>";
+	foreach ( $attachments as $id => $attachment ) {
+		$link = wp_get_attachment_link( $id, $size, true );
+		$output .= "<{$itemtag} class='gallery-item' style='width:{$itemwidth}%;'>";
+		$output .= "<{$icontag} class='gallery-icon'>$link</{$icontag}>";
+		if ( $captiontag && trim($attachment->post_excerpt) ) {
+			$output .= "<{$captiontag} class='gallery-caption'>{$attachment->post_excerpt}</{$captiontag}>";
+		}
+		$output .= "</{$itemtag}>";
+		if ( $columns > 0 && ++$i % $columns == 0 ) {
+			$gallery_count = 2;
+			$output .= "\n</div>\n<div class='gallery gallery-set-" . $gallery_count . "'>\n";
+			$gallery_count++;
+		}
+	}
+	$output .= "</div>\n";
+	return $output;
 }
 
 // Loads a blog.txt-style Search widget
@@ -741,6 +793,7 @@ add_filter('archive_meta', 'wptexturize');
 add_filter('archive_meta', 'convert_smilies');
 add_filter('archive_meta', 'convert_chars');
 add_filter('archive_meta', 'wpautop');
+add_shortcode('gallery', 'blogtxt_gallery');
 
 // Readies for translation.
 load_theme_textdomain('blogtxt')

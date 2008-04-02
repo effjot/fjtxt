@@ -2,10 +2,10 @@
 THEME NAME: blog.txt
 THEME URI: http://www.plaintxt.org/themes/blogtxt/
 DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme. For WordPress 2.5.x.
-VERSION: 4.5.1
+TAGS: variable width, fixed width, two columns, widgets, theme options, white, typography, gray
+VERSION: 4.5.2
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
-TAGS:  variable width, fixed width, two columns, widgets, theme options, white, typography, gray
 */
 a,a:link{outline:none;text-decoration:none;}
 div#header a,div#header a:link{color:#0d1117;}
@@ -70,8 +70,21 @@ div.entry-content img.center,div.entry-content img.alignright,div.entry-content 
 div.entry-content ins,div.comments ol.commentlist ins{background:#f5f5dc;}
 div.entry-content ol ol{list-style:lower-alpha;}
 div.entry-content p,div.formcontainer p{margin:1em 0;}
-div.entry-content p.attachment-name{margin:-0.5em 0 1em;}
-div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q{color:#494c5c;}
+body.attachment h3.entry-title{margin:-1.5em 0 0.5em 0;}
+div.entry-content div.entry-attachment{margin:-0.5em 0 1em;}
+div.entry-content div.entry-caption{margin-bottom:2em;}
+body.attachment h3.entry-title,div.entry-content div.entry-attachment,div.entry-content div.entry-caption{text-align:center;}
+div.entry-content div.gallery{clear:both;float:left;width:100%;}
+div.entry-content div.gallery dl{float:left;text-align:center;}
+div.entry-content div.gallery dl dt{margin:0;}
+div.entry-content div.gallery dl dd{margin-left:0;}
+div.entry-content div.entry-attachment img,div.entry-content div#nav-images div img{max-width:none;overflow:hidden;}
+body.attachment div#wrapper div#content div#nav-images{clear:both;margin:1em auto 2em auto;width:100%;}
+body.attachment div#nav-images div{margin:0;padding:2% 2% 4% 2%;width:46%;}
+body.attachment div#nav-images div.nav-previous{text-align:right;}
+body.attachment div#nav-images div.nav-next{text-align:left;}
+body.attachment div.entry-meta,body.attachment div.comments{clear:both;width:100%;}
+div.entry-content div.entry-caption,div.entry-content q,div.comments ol.commentlist q{color:#494c5c;}
 div.entry-content strong,div.comments ol#comments strong{text-transform:uppercase;}
 div.entry-content ul li ul{list-style:square;line-height:150%;}
 div.entry-content ul.xoxo,div.entry-content ul.xoxo li{list-style:none;margin:0;padding:0;}
