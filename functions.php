@@ -192,52 +192,70 @@ function blogtxt_commenter_link() {
 	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
 }
 
-// Our gallery short code; styles used in style.css file
+// Function to filter the default gallery shortcode
 function blogtxt_gallery($attr) {
 	global $post;
-	extract( shortcode_atts(
-		array(
-			'orderby'    => 'menu_order ASC, ID ASC',
-			'id'         => $post->ID,
-			'itemtag'    => 'dl',
-			'icontag'    => 'dt',
-			'captiontag' => 'dd',
-			'columns'    => 3,
-			'size'       => 'thumbnail',
-		),
-		$attr ) );
-	$id = intval($id);
-	$orderby = addslashes($orderby);
-	$attachments = get_children("post_parent=$id&post_type=attachment&post_mime_type=image&orderby=\"{$orderby}\"");
+	if ( isset($attr['orderby']) ) {
+		$attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+		if ( !$attr['orderby'] )
+			unset($attr['orderby']);
+	}
+
+	extract(shortcode_atts( array(
+		'orderby'    => 'menu_order ASC, ID ASC',
+		'id'         => $post->ID,
+		'itemtag'    => 'dl',
+		'icontag'    => 'dt',
+		'captiontag' => 'dd',
+		'columns'    => 3,
+		'size'       => 'thumbnail',
+	), $attr ));
+
+	$id           =  intval($id);
+	$orderby      =  addslashes($orderby);
+	$attachments  =  get_children("post_parent=$id&post_type=attachment&post_mime_type=image&orderby={$orderby}");
+
 	if ( empty($attachments) )
-		return '';
+		return null;
+
 	if ( is_feed() ) {
 		$output = "\n";
 		foreach ( $attachments as $id => $attachment )
 			$output .= wp_get_attachment_link( $id, $size, true ) . "\n";
 		return $output;
 	}
-	$listtag = tag_escape($listtag);
-	$itemtag = tag_escape($itemtag);
-	$captiontag = tag_escape($captiontag);
-	$columns = intval($columns);
-	$itemwidth = $columns > 0 ? floor(100/$columns) : 100;
-	$output = "<div class='gallery gallery-set-1'>";
+
+	$listtag     =  tag_escape($listtag);
+	$itemtag     =  tag_escape($itemtag);
+	$captiontag  =  tag_escape($captiontag);
+	$columns     =  intval($columns);
+	$itemwidth   =  $columns > 0 ? floor(100/$columns) : 100;
+
+	$output = apply_filters( 'gallery_style', "\n" . '<div class="gallery">', 9 ); // Available filter: gallery_style
+
 	foreach ( $attachments as $id => $attachment ) {
-		$link = wp_get_attachment_link( $id, $size, true );
-		$output .= "<{$itemtag} class='gallery-item' style='width:{$itemwidth}%;'>";
-		$output .= "<{$icontag} class='gallery-icon'>$link</{$icontag}>";
+		$img_lnk = get_attachment_link($id);
+		$img_src = wp_get_attachment_image_src( $id, $size );
+		$img_src = $img_src[0];
+		$img_alt = $attachment->post_excerpt;
+		if ( $img_alt == null )
+			$img_alt = $attachment->post_title;
+		$img_rel = apply_filters( 'gallery_img_rel', 'attachment' ); // Available filter: gallery_img_rel
+		$img_class = apply_filters( 'gallery_img_class', 'gallery-image' ); // Available filter: gallery_img_class
+
+		$output  .=  "\n\t" . '<' . $itemtag . ' class="gallery-item gallery-columns-' . $columns .'">';
+		$output  .=  "\n\t\t" . '<' . $icontag . ' class="gallery-icon"><a href="' . $img_lnk . '" title="' . $img_alt . '" rel="' . $img_rel . '"><img src="' . $img_src . '" alt="' . $img_alt . '" class="' . $img_class . ' attachment-' . $size . '" /></a></' . $icontag . '>';
+
 		if ( $captiontag && trim($attachment->post_excerpt) ) {
-			$output .= "<{$captiontag} class='gallery-caption'>{$attachment->post_excerpt}</{$captiontag}>";
+			$output .= "\n\t\t" . '<' . $captiontag . ' class="gallery-caption">' . $attachment->post_excerpt . '</' . $captiontag . '>';
 		}
-		$output .= "</{$itemtag}>";
-		if ( $columns > 0 && ++$i % $columns == 0 ) {
-			$gallery_count = 2;
-			$output .= "\n</div>\n<div class='gallery gallery-set-" . $gallery_count . "'>\n";
-			$gallery_count++;
-		}
+
+		$output .= "\n\t" . '</' . $itemtag . '>';
+		if ( $columns > 0 && ++$i % $columns == 0 )
+			$output .= "\n</div>\n" . '<div class="gallery">';
 	}
-	$output .= "</div>\n";
+	$output .= "\n</div>\n";
+
 	return $output;
 }
 
@@ -800,11 +818,13 @@ function blogtxt_wp_head() {
 add_action('admin_menu', 'blogtxt_add_admin');
 add_action('wp_head', 'blogtxt_wp_head');
 add_action('init', 'blogtxt_widgets_init');
+
 add_filter('archive_meta', 'wptexturize');
 add_filter('archive_meta', 'convert_smilies');
 add_filter('archive_meta', 'convert_chars');
 add_filter('archive_meta', 'wpautop');
-add_shortcode('gallery', 'blogtxt_gallery');
+
+add_filter('post_gallery', 'blogtxt_gallery', $attr);
 
 // Readies for translation.
 load_theme_textdomain('blogtxt')

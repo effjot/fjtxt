@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: blog.txt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-12 23:26-0500\n"
+"POT-Creation-Date: 2008-07-18 23:58-0500\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Scott Allan Wallick <s@scottwallick.com>\n"
 "Language-Team: Scott Allan Wallick <s@scottwallick.com>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: D:\\scott\\files\\My SVNs\\blogtxt\\trunk\n"
+"X-Poedit-SearchPath-0: \n"
 
 #: 404.php:6
 #: search.php:43
@@ -28,8 +28,8 @@ msgstr ""
 
 #: 404.php:13
 #: attachment.php:70
-#: functions.php:431
-#: functions.php:433
+#: functions.php:449
+#: functions.php:451
 #: image.php:75
 #: search.php:50
 #: sidebar.php:87
@@ -286,7 +286,7 @@ msgid "Comments to this post"
 msgstr ""
 
 #: attachment.php:65
-#: functions.php:343
+#: functions.php:361
 #: image.php:70
 #: sidebar.php:52
 #: single.php:83
@@ -294,7 +294,7 @@ msgid "All posts"
 msgstr ""
 
 #: attachment.php:66
-#: functions.php:344
+#: functions.php:362
 #: image.php:71
 #: sidebar.php:53
 #: single.php:84
@@ -302,7 +302,7 @@ msgid "All comments"
 msgstr ""
 
 #: attachment.php:74
-#: functions.php:249
+#: functions.php:267
 #: image.php:79
 #: sidebar.php:91
 #: single.php:92
@@ -398,289 +398,289 @@ msgid "theme by"
 msgstr ""
 
 #: functions.php:5
-#: functions.php:307
+#: functions.php:325
 msgid "Home"
 msgstr ""
 
-#: functions.php:248
+#: functions.php:266
 msgid "Blog Search"
 msgstr ""
 
-#: functions.php:277
-#: functions.php:329
-#: functions.php:362
-#: functions.php:404
+#: functions.php:295
+#: functions.php:347
+#: functions.php:380
+#: functions.php:422
 msgid "Title:"
 msgstr ""
 
-#: functions.php:278
+#: functions.php:296
 msgid "Button Text:"
 msgstr ""
 
-#: functions.php:287
-#: functions.php:440
-#: functions.php:442
+#: functions.php:305
+#: functions.php:458
+#: functions.php:460
 msgid "Meta"
 msgstr ""
 
-#: functions.php:293
+#: functions.php:311
 msgid "Powered by <a href=\"http://wordpress.org/\" title=\"WordPress\">WordPress</a>"
 msgstr ""
 
-#: functions.php:294
+#: functions.php:312
 #: sidebar.php:61
 #, php-format
 msgid "Compliant <a href=\"http://validator.w3.org/check/referer\" title=\"Valid XHTML\">XHTML</a> &amp; <a href=\"http://jigsaw.w3.org/css-validator/validator?profile=css2&amp;warning=2&amp;uri=%s\" title=\"Valid CSS\">CSS</a>"
 msgstr ""
 
-#: functions.php:328
+#: functions.php:346
 msgid "Adds a link to the home page on every page <em>except</em> the home."
 msgstr ""
 
-#: functions.php:338
-#: functions.php:465
-#: functions.php:466
+#: functions.php:356
+#: functions.php:483
+#: functions.php:484
 msgid "RSS Links"
 msgstr ""
 
-#: functions.php:343
+#: functions.php:361
 msgid "Posts RSS feed"
 msgstr ""
 
-#: functions.php:344
+#: functions.php:362
 msgid "Comments RSS feed"
 msgstr ""
 
-#: functions.php:372
-#: functions.php:457
-#: functions.php:458
+#: functions.php:390
+#: functions.php:475
+#: functions.php:476
 #: sidebar.php:17
 msgid "Recent Comments"
 msgstr ""
 
-#: functions.php:373
+#: functions.php:391
 msgid "5"
 msgstr ""
 
-#: functions.php:380
+#: functions.php:398
 #: sidebar.php:20
 #, php-format
 msgid "<span class=\"comment-author vcard\">%1$s</span> <span class=\"comment-entry-title\">on <cite title=\"%2$s\">%2$s</cite></span> <blockquote class=\"comment-summary\" cite=\"%3$s\" title=\"Comment on %2$s\">%4$s &hellip;</blockquote>"
 msgstr ""
 
-#: functions.php:406
+#: functions.php:424
 msgid "Number of comments to show:"
 msgstr ""
 
-#: functions.php:408
+#: functions.php:426
 msgid "(at most 15)"
 msgstr ""
 
-#: functions.php:429
+#: functions.php:447
 msgid "A search form for your blog (blog.txt)"
 msgstr ""
 
-#: functions.php:438
+#: functions.php:456
 msgid "Log in/out and administration links (blog.txt)"
 msgstr ""
 
-#: functions.php:447
+#: functions.php:465
 msgid "Link to the front page when elsewhere (blog.txt)"
 msgstr ""
 
-#: functions.php:449
-#: functions.php:450
+#: functions.php:467
+#: functions.php:468
 msgid "Home Link"
 msgstr ""
 
-#: functions.php:455
+#: functions.php:473
 msgid "Semantic recent comments (blog.txt)"
 msgstr ""
 
-#: functions.php:463
+#: functions.php:481
 msgid "RSS links for both posts and comments (blog.txt)"
 msgstr ""
 
-#: functions.php:505
-#: functions.php:547
+#: functions.php:523
+#: functions.php:565
 msgid "Blog.txt Theme Options"
 msgstr ""
 
-#: functions.php:505
+#: functions.php:523
 msgid "Theme Options"
 msgstr ""
 
-#: functions.php:543
+#: functions.php:561
 #, php-format
 msgid "Blog.txt theme options saved. <a href=\"%s\">View site.</a>"
 msgstr ""
 
-#: functions.php:544
+#: functions.php:562
 msgid "Blog.txt theme options reset."
 msgstr ""
 
-#: functions.php:548
+#: functions.php:566
 #, php-format
 msgid "%1$s<p>Thanks for selecting the <a href=\"http://www.plaintxt.org/themes/blogtxt/\" title=\"blog.txt theme for WordPress\">blog.txt</a> theme by <span class=\"vcard\"><a class=\"url fn n\" href=\"http://scottwallick.com/\" title=\"scottwallick.com\" rel=\"me designer\"><span class=\"given-name\">Scott</span> <span class=\"additional-name\">Allan</span> <span class=\"family-name\">Wallick</span></a></span>. Please read the included <a href=\"%2$s\" title=\"Open the readme.html\" rel=\"enclosure\" id=\"readme\">documentation</a> for more information about the blog.txt and its advanced features. <strong>If you find this theme useful, please consider <label for=\"paypal\">donating</label>.</strong> You must click on <i><u>S</u>ave Options</i> to save any changes. You can also discard your changes and reload the default settings by clicking on <i><u>R</u>eset</i>.</p>"
 msgstr ""
 
-#: functions.php:552
+#: functions.php:570
 msgid "Typography"
 msgstr ""
 
-#: functions.php:555
+#: functions.php:573
 msgid "Base font size"
 msgstr ""
 
-#: functions.php:558
+#: functions.php:576
 msgid "The base font size globally affects the size of text throughout your blog. This can be in any unit (e.g., px, pt, em), but I suggest using a percentage (%). Default is <span>80%</span>."
 msgstr ""
 
-#: functions.php:562
+#: functions.php:580
 msgid "Base font family"
 msgstr ""
 
-#: functions.php:573
+#: functions.php:591
 #, php-format
 msgid "The base font family sets the font for content area. The selection is limited to %1$s fonts, as they will display correctly. Default is <span class=\"georgia\">Georgia</span>."
 msgstr ""
 
-#: functions.php:577
+#: functions.php:595
 msgid "Heading font family"
 msgstr ""
 
-#: functions.php:588
+#: functions.php:606
 #, php-format
 msgid "The heading font family sets the font for all content headings and blog description. The selection is limited to %1$s fonts, as they will display correctly. Default is <span class=\"arial\">Arial</span>. "
 msgstr ""
 
-#: functions.php:592
+#: functions.php:610
 msgid "Blog title font family"
 msgstr ""
 
-#: functions.php:603
+#: functions.php:621
 #, php-format
 msgid "The blog title font family sets the font for the blog title (and sidebar headings, actually). The selection is limited to %1$s fonts, as they will display correctly. Default is <span class=\"times\">Times</span>. "
 msgstr ""
 
-#: functions.php:607
+#: functions.php:625
 msgid "Miscellanea font family"
 msgstr ""
 
-#: functions.php:618
+#: functions.php:636
 #, php-format
 msgid "The miscellanea font family sets the font for the sidebar content, input fields, and post footers. The selection is limited to %1$s fonts, as they will display correctly. Default is <span class=\"verdana\">Verdana</span>. "
 msgstr ""
 
-#: functions.php:622
+#: functions.php:640
 msgid "Layout"
 msgstr ""
 
-#: functions.php:625
+#: functions.php:643
 msgid "Layout width"
 msgstr ""
 
-#: functions.php:628
+#: functions.php:646
 msgid "The layout width determines the normal width of the entire layout. This can be in any unit (e.g., px, pt, %). Default is <span>60em</span>."
 msgstr ""
 
-#: functions.php:632
+#: functions.php:650
 msgid "Layout type"
 msgstr ""
 
-#: functions.php:635
+#: functions.php:653
 msgid "Two-column (left)"
 msgstr ""
 
-#: functions.php:636
+#: functions.php:654
 msgid "Two-column (right)"
 msgstr ""
 
-#: functions.php:637
+#: functions.php:655
 msgid "Three-column (both)"
 msgstr ""
 
-#: functions.php:639
+#: functions.php:657
 msgid "Choose one of the options for the type of layout: two column with a left or right sidebars, or three-column with left and right sidebars. Default is <span>Two-column (right)</span>."
 msgstr ""
 
-#: functions.php:643
+#: functions.php:661
 msgid "Layout alignment"
 msgstr ""
 
-#: functions.php:646
-#: functions.php:657
+#: functions.php:664
+#: functions.php:675
 msgid "Centered"
 msgstr ""
 
-#: functions.php:647
-#: functions.php:659
+#: functions.php:665
+#: functions.php:677
 msgid "Left"
 msgstr ""
 
-#: functions.php:648
-#: functions.php:660
+#: functions.php:666
+#: functions.php:678
 msgid "Right"
 msgstr ""
 
-#: functions.php:650
+#: functions.php:668
 msgid "Choose one of the options for the alignment of the entire layout. Default is <span>left</span>."
 msgstr ""
 
-#: functions.php:654
+#: functions.php:672
 msgid "Post text alignment"
 msgstr ""
 
-#: functions.php:658
+#: functions.php:676
 msgid "Justified"
 msgstr ""
 
-#: functions.php:662
+#: functions.php:680
 msgid "Choose one of the options for the alignment of the post entry text. Default is <span>left</span>."
 msgstr ""
 
-#: functions.php:666
+#: functions.php:684
 msgid "Content"
 msgstr ""
 
-#: functions.php:669
+#: functions.php:687
 msgid "Author link"
 msgstr ""
 
-#: functions.php:672
+#: functions.php:690
 msgid "Displayed"
 msgstr ""
 
-#: functions.php:673
+#: functions.php:691
 msgid "Hidden"
 msgstr ""
 
-#: functions.php:675
+#: functions.php:693
 msgid "The author's name and link to his/her corresponding archives page can be displayed or hidden. The \"hidden\" setting disables the link in an author's name in single post footers (and in pages &mdash; see the <a href=\"#readme\">documentation</a> for info). Default is <span>displayed</span>."
 msgstr ""
 
-#: functions.php:679
+#: functions.php:697
 msgid "Avatar size"
 msgstr ""
 
-#: functions.php:682
+#: functions.php:700
 msgid "Sets the avatar size in pixels, if avatars are enabled. Default is <span>16</span>."
 msgstr ""
 
-#: functions.php:687
+#: functions.php:705
 msgid "Save Options"
 msgstr ""
 
-#: functions.php:692
-#: functions.php:697
+#: functions.php:710
+#: functions.php:715
 msgid "Reset Options"
 msgstr ""
 
-#: functions.php:693
+#: functions.php:711
 msgid "Resetting deletes all stored blog.txt options from your database. After resetting, default options are loaded but are not stored until you click <i>Save Options</i>. A reset does not affect the actual theme files in any way. If you are uninstalling blog.txt, please reset before removing the theme files to clear your databse."
 msgstr ""
 
-#: functions.php:697
+#: functions.php:715
 msgid "Click OK to reset. Any changes to these theme options will be lost!"
 msgstr ""
 

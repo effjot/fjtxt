@@ -1,11 +1,11 @@
 /*
 THEME NAME: blog.txt
 THEME URI: http://www.plaintxt.org/themes/blogtxt/
-DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme. For WordPress 2.5.x.
-TAGS: variable width, fixed width, two columns, widgets, theme options, white, typography, gray
-VERSION: 4.5.3
+DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme&mdash;a classic. For WordPress 2.6.x.
+VERSION: 4.6
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
+TAGS: variable width, fixed width, variable columns, two columns, three columns, widgets, theme options, options page, white, gray, typography, microformats, hatom, hcard
 */
 a,a:link{outline:none;text-decoration:none;}
 div#header a,div#header a:link{color:#0d1117;}
@@ -50,11 +50,11 @@ div.comments ol.commentlist span.comment-meta,div.comments p#loggedin{font-style
 div.comments span.req-field{color:#c00;}
 div.entry-content .alignleft{float:left;margin:0.5em 1em 0.5em 0;}
 div.entry-content .alignright{float:right;margin:0.5em 0 0.5em 1em;}
-div.entry-content .center{display:block;margin:1em auto;}
+div.entry-content .center,div.entry-content .aligncenter{display:block;margin:1em auto;}
 div.entry-content .clearer,div.entry-content .entry-edit{clear:both;width:99%;}
 div.entry-content .content-column{width:40%;}
 div.entry-content .more-link{font-size:95%;font-weight:700;text-transform:uppercase;}
-div.entry-content a:hover img.center,div.entry-content a:hover img.alignright,div.entry-content a:hover img.alignleft{border:1px solid #2c384d;}
+div.entry-content a:hover img.center,div.entry-content a:hover img.aligncenter,div.entry-content a:hover img.alignright,div.entry-content a:hover img.alignleft{border:1px solid #2c384d;}
 div.entry-content blockquote blockquote,div.comments ol.commentlist blockquote blockquote{border-left:5px solid #ccd0d6;font-size:0.9em;padding:0 1em;}
 div.entry-content blockquote,div.comments ol.commentlist blockquote{background:#ebedef;color:#4d5663;padding:0.1em 1em;}
 div.entry-content code,div.entry-content pre,div.comments ol.commentlist code,div.comments ol.commentlist pre{color:#494C5C;font:1em/133% "courier new",courier,monospace;}
@@ -74,10 +74,15 @@ body.attachment h3.entry-title{margin:-1.5em 0 0.5em 0;}
 div.entry-content div.entry-attachment{margin:-0.5em 0 1em;}
 div.entry-content div.entry-caption{margin-bottom:2em;}
 body.attachment h3.entry-title,div.entry-content div.entry-attachment,div.entry-content div.entry-caption{text-align:center;}
-div.entry-content div.gallery{clear:both;float:left;width:100%;}
-div.entry-content div.gallery dl{float:left;text-align:center;}
-div.entry-content div.gallery dl dt{margin:0;}
-div.entry-content div.gallery dl dd{margin-left:0;}
+div.entry-content .wp-caption-text{font-style:italic;margin:0.2em auto 1em auto;text-align:center;}
+div.entry-content div.gallery{clear:both;float:left;margin:1em auto;text-align:center;width:100%;}
+div.entry-content div.gallery dl{float:left;margin:0 auto;text-align:center;}
+div.entry-content div.gallery dl.gallery-columns-2{width:49%;}
+div.entry-content div.gallery dl.gallery-columns-3{width:33%;}
+div.entry-content div.gallery dl.gallery-columns-4{width:24%;}
+div.entry-content div.gallery dl.gallery-columns-5{width:19%;}
+div.entry-content div.gallery dd{font-style:italic;margin:0 auto 1em auto;text-align:center;}
+div.entry-content div.gallery *{margin:0;padding:0;}
 div.entry-content div.entry-attachment img,div.entry-content div#nav-images div img{max-width:none;overflow:hidden;}
 body.attachment div#wrapper div#content div#nav-images{clear:both;margin:1em auto 2em auto;width:100%;}
 body.attachment div#nav-images div{margin:0;padding:2% 2% 4% 2%;width:46%;}
@@ -113,7 +118,7 @@ div.nav-next{float:right;text-align:right;}
 div.nav-previous{float:left;text-align:left;}
 div.navigation{font-size:0.9em;height:1.2em;text-align:center;text-transform:uppercase;}
 div.navigation div{width:48%;}
-div.sidebar{line-height:150%;}
+div.sidebar{line-height:150%; margin-right:-3px;}
 div.sidebar ul li{list-style:none;margin:0 0 2.5em;padding:0;}
 div.sidebar ul li h3{font-weight:bold;font-size:1.2em;line-height:133%;letter-spacing:1px;margin:0 0 0.1em;text-transform:uppercase;}
 div.sidebar ul li ul li{color:#4d5663;margin:0;padding:0;}
@@ -127,7 +132,7 @@ div.sidebar ul li#calendar div#calendar_wrap{margin:0.5em 0 0;}
 div.sidebar ul li#calendar table#wp-calendar{text-align:center;width:75%;}
 div.sidebar ul li#calendar table#wp-calendar tbody a{font-size:1.1em;font-weight:700;}
 div.sidebar ul li#google-search div form#gsearch,div.sidebar ul li#calendar table#wp-calendar caption{text-align:left;}
-div.sidebar ul li#rss_links ul li a{background:url(images/feed.png) no-repeat left center;padding:0 0 0 15px;}
+div.sidebar ul li#rss_links ul li a,div.sidebar ul li#rss-links ul li a{background:url(images/feed.png) no-repeat left center;padding:0 0 0 15px;}
 div.sidebar ul li#search form#searchform{margin:0.2em 0 0;padding:0;}
 div.sidebar ul li#search input#s{width:7em;}
 div.sidebar ul li.entry-interact ul li.comment-link a{background:url(images/comments.png) no-repeat left center;padding:0 0 0 15px;}
