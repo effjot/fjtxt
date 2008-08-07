@@ -58,7 +58,7 @@
 <div class="readme">
 	<h2 id="readme-title">blog.txt</h2>
 	<div class="readme-meta">
-		<div class="readme-version">Version 4.6</div>
+		<div class="readme-version">Version 4.6.1</div>
 		<div class="readme-subtitle">A place where a blog and its text can work together.</div>
 	</div>
 	<ol id="toc">
@@ -189,42 +189,6 @@
 			<h3>Special classes and styled elements</h3>
 			<p>The blog.txt theme stylesheet (the <code>/blogtxt/style.css</code> file) includes specific styles for some special classes and many HTML elements. Some explanation may be helpful for some of the styled HTML elements.</p>
 			<p>Note that these classes and elements won't work correctly when entered into the <a href="http://codex.wordpress.org/Your_Profile_SubPanel" title="Your profile - WordPress Codex">visual rich editor</a>. I highly recommend disabling the visual rich editor feature in your user profile.</p>
-			<h4>Styled elements</h4>
-			<p>The blog.txt theme includes information for many, many HTML elements (e.g., <code>blockquote</code>, <code>q</code>, <code>ins</code>, <code>del</code>) but it may be useful to note how blog.txt handles two particular HTML elements: <code>em</code> and <code>strong</code>.</p>
-			<p>I would like to promote semantic markup in blogging. It helps make the content more accessible, consistent, and future-friendly. This theme considers <code>em</code> (emphasis) different from <code>i</code> (italics), and <code>strong</code> (strong emphasis) different from <code>b</code> (bold).</p>
-			<p>Bold and italics refer to the appearance of the text, whereas <code>em</code> and <code>strong</code> refer to levels of <a href="http://www.thefreedictionary.com/emphasis" title="Emphasis on freedictionary.com">emphasis</a> put on the word(s). It's the difference between presentation (<code>b</code>/<code>i</code>) and meaning/context (<code>em</code>/<code>strong</code>).</p>
-			<ol class="item-examples">
-				<li>I shouted <code>&lt;strong&gt;</code><strong>stop doing that!!</strong><code>&lt;/strong&gt;</code></li>
-				<li>Did you read the <code>&lt;b&gt;</code><b>readme.html</b><code>&lt;/b&gt;</code> file?</li>
-			</ol>
-			<p>In item a, the <code>strong</code> element denotes strong emphasis and adds meaning/context to the words. In item b, the <code>b</code> element simply bolds the text and is purely cosmetic.</p>
-			<p>Imagine if someone were reading your blog aloud. You would want them to shout "stop doing that!" but not to shout "readme.html!" right?</p>
-			<p>Below are examples of how the <code>em</code>, <code>strong</code> and <code>b</code>, <code>i</code> elements have been styled for blog.txt:</p>
-			<dl id="emphasis">
-				<dt class="def-head">Emphasis</dt>
-				<dd class="def-rubric">Used to add meaning and context to text</dd>
-				<dt><code>em</code></dt>
-				<dd>Used to indicate emphasis</dd>
-				<dd class="example">You <code>&lt;em&gt;</code><em>should not</em><code>&lt;/em&gt;</code> be late.</dd>
-				<dt><code>strong</code></dt>
-				<dd>Used to indicate stronger emphasis</dd>
-				<dd class="example">He shouted <code>&lt;strong&gt;</code><strong>You're fired!</strong><code>&lt;/strong&gt;</code></dd>
-			</dl>
-			<dl id="presentation">
-				<dt class="def-head">Presentation</dt>
-				<dd class="def-rubric">Used to style text (not to add meaning)</dd>
-				<dt><code>b</code></dt>
-				<dd>Used to bold text</dd>
-				<dd class="example">Find the word <code>&lt;b&gt;</code><b>happy</b><code>&lt;/b&gt;</code> in the glossary.</dd>
-				<dt><code>i</code></dt>
-				<dd>Used to italicize text</dd>
-				<dd class="example">Go to the <code>&lt;i&gt;</code><i>Presentation</i><code>&lt;/i&gt;</code> subpanel.</dd>
-			</dl>
-			<p class="rubric">For more information on how to write semantic markup in your blog, visit:</p>
-			<ul>
-				<li><a href="http://brainstormsandraves.com/articles/semantics/structure/" title="Semantics, XHTML, and Structure">Brainstorms &amp; Raves: Semantics, XHTML, and Structure</a></li>
-				<li><a href="http://www.mezzoblue.com/downloads/markupguide/" title="mezzoblue &sect; markup guide">mezzoblue &sect; markup guide</a></li>
-			</ul>
 			<h4>Headings</h4>
 			<p>Headings for the content area have been styled to display correctly: with more space above than below as content must logically follow headings. Headings help create an outline of the content on your page. They guide the reader and also help machines understand the structure of content.</p>
 			<p>While there are no hard-and-fast rules regarding this, I believe the headings should follow a logical progression, e.g., <i>h1 &rsaquo; h2 &rsaquo; h3 &rsaquo; h4 &rsaquo; h3 &rsaquo; h3 &rsaquo; h4 &hellip; </i>. There should not be two <code>h1</code>-level headings on a single page. Therefore, since post and page titles are <code>h2</code>-level, the only headings that should be used in the content area are <code>h3</code>&ndash;<code>h6</code>.</p>

@@ -2,7 +2,7 @@
 THEME NAME: blog.txt
 THEME URI: http://www.plaintxt.org/themes/blogtxt/
 DESCRIPTION: Where a blog and its text join together. An exceptionally clean theme&mdash;a classic. For WordPress 2.6.x.
-VERSION: 4.6
+VERSION: 4.6.1
 AUTHOR: Scott Allan Wallick
 AUTHOR URI: http://scottwallick.com/
 TAGS: variable width, fixed width, variable columns, two columns, three columns, widgets, theme options, options page, white, gray, typography, microformats, hatom, hcard
@@ -60,7 +60,6 @@ div.entry-content blockquote,div.comments ol.commentlist blockquote{background:#
 div.entry-content code,div.entry-content pre,div.comments ol.commentlist code,div.comments ol.commentlist pre{color:#494C5C;font:1em/133% "courier new",courier,monospace;}
 div.entry-content del,div.comments ol.commentlist del{background:#ebedef;color:#31343a;}
 div.entry-content div.page-link{font-size:0.9em;font-weight:700;margin:0 0 1.5em;text-align:center;}
-div.entry-content em,div.comments ol.commentlist em{font-style:normal;font-weight:700;}
 div.entry-content h2,div.entry-content h3{font-size:1.5em;margin:1.5em 0 -0.3em;}
 div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-weight:400;}
 div.entry-content h4{font-size:1.4em;margin:1.5em 0 -0.3em;}
@@ -90,7 +89,6 @@ body.attachment div#nav-images div.nav-previous{text-align:right;}
 body.attachment div#nav-images div.nav-next{text-align:left;}
 body.attachment div.entry-meta,body.attachment div.comments{clear:both;width:100%;}
 div.entry-content div.entry-caption,div.entry-content q,div.comments ol.commentlist q{color:#494c5c;}
-div.entry-content strong,div.comments ol#comments strong{text-transform:uppercase;}
 div.entry-content ul li ul{list-style:square;line-height:150%;}
 div.entry-content ul.xoxo,div.entry-content ul.xoxo li{list-style:none;margin:0;padding:0;}
 div.entry-content ul.xoxo li h3{margin-bottom:0.3em;}
