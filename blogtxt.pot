@@ -7,10 +7,10 @@
 # the License, or (at your option) any later version.
 msgid ""
 msgstr ""
-"Project-Id-Version: 4.6.1\n"
+"Project-Id-Version: 4.6.2\n"
 "Report-Msgid-Bugs-To: http://blogtxt.googlecode.com/\n"
 "POT-Creation-Date: 2008-07-18 23:58-0500\n"
-"PO-Revision-Date: 2008-07-29 23:06+0000\n"
+"PO-Revision-Date: 2012-02-12 00:41+0100\n"
 "Last-Translator: Scott Allan Wallick <s@plaintxt.org>\n"
 "Language-Team: Scott Allan Wallick <s@plaintxt.org>\n"
 "MIME-Version: 1.0\n"
