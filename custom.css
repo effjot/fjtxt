@@ -321,3 +321,34 @@ td { padding: 1.6ex 0.8ex;
 
 td div.age { position: relative;
              top: 2ex; }
+
+
+/* Some more table styles */
+
+.alignleft { float: left; }
+
+a.nodecoration { border: none !important; }
+
+table.padding td { padding: 1ex; }
+
+table .border { border: solid thin black; }
+
+table.aligntopleft tr { vertical-align: top; text-align: left;}
+
+thead.rule th { border-top: black solid medium;
+                border-bottom: black solid thin; }
+table tr.thickrulebelow td { border-bottom: black solid medium; }
+table tr td.thickrulebelow { border-bottom: black solid medium; }
+table tr.rulebelow td { border-bottom: black solid thin; }
+table tr td.rulebelow { border-bottom: black solid thin; }
+table tr.rulebelow th { border-bottom: black solid thin; }
+table tr td.thickruleleft { border-left: black solid medium;
+                            padding-left: 0.3em;}
+
+table tr td.ereignis  { background: #eee;
+                        border-bottom: solid medium #363; }
+table tr td.orogenese { background: #eee;
+                        border-bottom: solid medium orange; }
+
+
+.spaceabove { clear: both; padding-top: 2.5ex; }
