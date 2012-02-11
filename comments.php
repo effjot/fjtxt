@@ -23,19 +23,21 @@ foreach ( $comments as $comment )
 <?php if ( $comment_count ) : ?>
 <?php $blogtxt_comment_alt = 0 // Resets comment count for .alt classes ?>
 
-	<h3 class="comment-header" id="numcomments"><?php printf(__($comment_count > 1 ? 'Comments <span class="comment-count">%d</span>' : 'Comments <span class="comment-count">1</span>'), $comment_count) ?></h3>
+<h3 class="comment-header" id="numcomments"><?php printf(__ngettext('Comment <span class="comment-count">%d</span>', 'Comments <span class="comment-count">%d</span>', $comment_count, 'blogtxt'), $comment_count) ?></h3>
 	<ol id="comments" class="commentlist">
 <?php foreach ($comments as $comment) : ?>
 <?php if ( get_comment_type() == "comment" ) : ?>
 		<li id="comment-<?php comment_ID() ?>" class="<?php blogtxt_comment_class() ?>">
-			<span class="comment-author vcard"><?php blogtxt_commenter_link() ?> <?php _e('wrote:', 'blogtxt') ?></span>
-			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your comment is awaiting moderation.', 'blogtxt') ?></span><?php endif; ?>
-<?php comment_text() ?>
-			<span class="comment-meta"><?php printf(__('Posted <abbr class="comment-published" title="%1$s">%2$s at %3$s</abbr> <a class="comment-permalink" href="%4$s" title="Permalink to this comment">&para;</a>', 'blogtxt'),
+		   <span class="comment-meta">
+		   <span class="comment-author vcard"><?php blogtxt_commenter_link("commenter") ?> <?php commentCount(); ?></span>
+		   &lang;&nbsp;<?php printf(__('<abbr class="comment-published" title="%1$s">%2$s, %3$s</abbr> | <a class="comment-permalink" href="%4$s" title="Permalink to this comment">#</a>', 'blogtxt'),
 				get_the_time('Y-m-d\TH:i:sO'),
-				get_comment_date('d M Y'),
+				get_comment_date(),
 				get_comment_time(),
-				'#comment-' . get_comment_ID() ); ?> <?php edit_comment_link(__('Edit', 'blogtxt'), "<span class=\"comment-edit\"> &equiv; ", "</span>"); ?></span>
+					    '#comment-' . get_comment_ID() ); ?> <?php edit_comment_link(__('Edit', 'blogtxt'), "<span class=\"comment-edit\"> | ", "</span>"); ?>&nbsp;&rang;</span>
+			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your comment is awaiting moderation.', 'blogtxt') ?></span><?php endif; ?>
+<p><?php blogtxt_commenter_link("avatar"); ?></p>
+<?php comment_text(); ?>
 		</li>
 
 <?php endif; ?>
@@ -48,18 +50,18 @@ foreach ( $comments as $comment )
 <?php if ( $ping_count ) : ?>
 <?php $blogtxt_comment_alt = 0 // Resets comment count for .alt classes for pingbacks ?>
 
-	<h3 class="comment-header" id="numpingbacks"><?php printf(__($ping_count > 1 ? 'Trackbacks &amp; Pingbacks <span class="comment-count">%d</span>' : 'Trackbacks &amp; Pingbacks <span class="comment-count">1</span>', 'blogtxt'), $ping_count) ?></h3>
+	<h3 class="comment-header" id="numpingbacks"><?php printf(__($ping_count > 1 ? 'Trackbacks &amp; Pingbacks <span class="comment-count">%d</span>' : 'Trackbacks &amp; Pingbacks <span class="comment-count">(1)</span>', 'blogtxt'), $ping_count) ?></h3>
 	<ol id="pingbacks" class="commentlist">
 
 <?php foreach ( $comments as $comment ) : ?>
 <?php if ( get_comment_type() != "comment" ) : ?>
 		<li id="comment-<?php comment_ID() ?>" class="<?php blogtxt_comment_class() ?>">
-			<span class="pingback-meta vcard"><?php printf(__('From <span class="fn n url org">%1$s</span> on <abbr class="comment-published" title="%2$s">%3$s at %4$s</abbr> <a class="pingback-permalink" href="%5$s" title="Permalink to this pingback">&para;</a>', 'blogtxt'),
+			<span class="pingback-meta vcard"><?php printf(__('<span class="fn n url org">%1$s</span><br />&lang;&nbsp;<abbr class="comment-published" title="%2$s">%3$s, %4$s</abbr> | <a class="pingback-permalink" href="%5$s" title="Permalink to this pingback">#</a>', 'blogtxt'),
 				get_comment_author_link(),
 				get_the_time('Y-m-d\TH:i:sO'),
 				get_comment_date('d M Y'),
 				get_comment_time(),
-				'#comment-' . get_comment_ID() ); ?> <?php edit_comment_link(__('Edit', 'blogtxt'), "<span class=\"comment-edit\"> &equiv; ", "</span>"); ?></span>
+				'#comment-' . get_comment_ID() ); ?><?php edit_comment_link(__('Edit', 'blogtxt'), " | <span class=\"comment-edit\">", "</span>"); ?>&nbsp;&rang;</span>
 			<?php if ($comment->comment_approved == '0') : ?><span class="unapproved"><?php _e('Your comment is awaiting moderation.', 'blogtxt') ?></span><?php endif; ?>
 <?php comment_text() ?>
 		</li>
@@ -81,7 +83,7 @@ foreach ( $comments as $comment )
 
 <?php else : ?>
 
-	<div class="formcontainer">	
+	<div class="formcontainer">
 
 		<form id="commentform" action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post">
 <?php if ( $user_ID ) : ?>
