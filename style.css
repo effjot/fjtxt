@@ -41,7 +41,7 @@ h1#blog-title { font-weight: normal; font-size: 4em; letter-spacing: 2px;
                 position: absolute; bottom: 0px;
                 margin-left: 0.2em; margin-bottom: 0.1em; }
 div#blog-title-container { height: 140px;
-                           background-image: url(/img/cb-nord-boeschung.jpg);
+                           background-image: url(images/title-image.jpg);
                            background-repeat: no-repeat;
                            border-bottom: 8px solid #ccd0d6;
                            position: relative;}
