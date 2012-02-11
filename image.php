@@ -11,7 +11,7 @@
 					<div class="entry-content">
 						<div class="entry-attachment"><a href="<?php echo wp_get_attachment_url($post->ID); ?>" title="<?php echo wp_specialchars( get_the_title($post->ID), 1 ) ?>" rel="attachment"><?php echo wp_get_attachment_image( $post->ID, 'medium' ); ?></a></div>
 						<div class="entry-caption"><?php if ( !empty($post->post_excerpt) ) the_excerpt(); ?></div>
-<?php the_content('<span class="more-link">'.__('Continue reading &rsaquo;', 'blogtxt').'</span>'); ?>
+<?php the_content('<span class="more-link">'.__('Continue Reading', 'blogtxt').' &rang;</span>'); ?>
 
 					</div>
 				</div><!-- .post -->
@@ -30,7 +30,7 @@
 	<div id="primary" class="sidebar">
 		<ul>
 			<li id="home-link">
-				<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'blogtxt'); ?></a></h3>
+	  <h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
 			</li>
 			<li class="entry-meta">
 				<h3><?php _e('About This Post', 'blogtxt') ?></h3>
