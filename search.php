@@ -11,20 +11,25 @@
 				<div id="post-<?php the_ID() ?>" class="<?php blogtxt_post_class() ?>">
 					<h3 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php printf(__('Permalink to %s', 'blogtxt'), wp_specialchars(get_the_title(), 1)) ?>" rel="bookmark"><?php the_title() ?></a></h3>
 					<div class="entry-content">
-<?php the_excerpt('<span class="more-link">'.__('Continue Reading &raquo;', 'blogtxt').'</span>') ?>
+                           <?php
+                           if ((function_exists('has_post_thumbnail')) &&
+                               (has_post_thumbnail())) {
+                             the_post_thumbnail('thumbnail');
+                           }
+                           the_excerpt(); ?>
 
 					</div>
 					<div class="entry-meta">
-						<span class="meta-sep">&para;</span>
-						<span class="entry-date"><?php _e('Posted', 'blogtxt') ?> <abbr class="published" title="<?php the_time('Y-m-d\TH:i:sO'); ?>"><?php unset($previousday); printf(__('%1$s', 'blogtxt'), the_date('d F Y', false)) ?></abbr></span>
+
+						<span class="entry-date"><?php _e('Posted', 'blogtxt') ?> <abbr class="published" title="<?php the_time('Y-m-d\TH:i:sO'); ?>"><?php unset($previousday); printf(__('%1$s', 'blogtxt'), the_date('', false)) ?></abbr></span>						<span class="meta-sep">&lang;</span>
 						<?php blogtxt_author_link(); // Function for author link option ?>
-						<span class="meta-sep">&sect;</span>
-						<span class="entry-category"><?php the_category(' &sect; ') ?></span>
-						<span class="meta-sep">&Dagger;</span>
+						<span class="meta-sep">|</span>
+						<span class="entry-category"><?php the_category(', ') ?></span>
+						<span class="meta-sep">|</span>
 						<span class="entry-comments"><?php comments_popup_link(__('Comments (0)', 'blogtxt'), __('Comments (1)', 'blogtxt'), __('Comments (%)', 'blogtxt')) ?></span>
-						<span class="meta-sep">&deg;</span>
-						<span class="entry-tags"><?php the_tags(__('Tagged: ', 'blogtxt'), ", ", "</span>") ?></span>
-<?php edit_post_link(__('Edit', 'blogtxt'), "\t\t\t\t\t<span class=\"meta-sep\">&equiv;</span>\n\t\t\t\t\t<span class='entry-edit'>", "</span>\n"); ?>
+						<?php if(get_the_tags()) : ?><span class="meta-sep">|</span>
+						<span class="entry-tags"><?php the_tags(__('Tagged: ', 'blogtxt'), ", ", "") ?></span><?php endif ?>
+<?php edit_post_link(__('Edit', 'blogtxt'), "\t\t\t\t\t<span class=\"meta-sep\">|</span>\n\t\t\t\t\t<span class='entry-edit'>", "</span>"); ?> &rang;
 					</div>
 				</div><!-- .post -->
 
