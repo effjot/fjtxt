@@ -7,7 +7,7 @@
 				<div id="post-<?php the_ID(); ?>" class="<?php blogtxt_post_class(); ?>">
 					<h2 class="entry-title"><?php the_title(); ?></h2>
 					<div class="entry-content">
-<?php the_content('<span class="more-link">'.__('Continue Reading &raquo;', 'blogtxt').'</span>'); ?>
+<?php the_content('<span class="more-link">'.__('Continue Reading', 'blogtxt').' &rang;</span>'); ?>
 
 <?php link_pages('<div class="page-link">'.__('Pages: ', 'blogtxt'), "</div>\n", 'number'); ?>
 
@@ -30,15 +30,14 @@
 
 	<div id="primary" class="sidebar">
 		<ul>
-			<li id="home-link">
-				<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'blogtxt'); ?></a></h3>
+			<li id="home-link"><h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
 			</li>
 			<li class="entry-meta">
 				<h3><?php _e('About This Post', 'blogtxt') ?></h3>
 				<ul>
 					<li><?php printf(__('Written by %s', 'blogtxt'), blogtxt_author_link() ) ?></li>
-					<li><?php printf(__('<abbr class="published" title="%1$sT%2$s">%3$s at %4$s</abbr>', 'blogtxt'), get_the_time('Y-m-d'), get_the_time('H:i:sO'), get_the_time('F jS, Y'), get_the_time() ) ?></li>
-					<?php edit_post_link(__('Edit this entry', 'blogtxt'),'<li class="entry-edit">&equiv; ','</li>') ?>
+					<li><?php printf(__('<abbr class="published" title="%1$sT%2$s">%3$s at %4$s</abbr>', 'blogtxt'), get_the_time('Y-m-d'), get_the_time('H:i:sO'), get_the_time('j. F Y'), get_the_time() ) ?></li>
+					<?php edit_post_link(__('Edit this entry', 'blogtxt'),'<li class="entry-edit">','</li>') ?>
 				</ul>
 			</li>
 			<li class="entry-category">
@@ -47,12 +46,14 @@
 					<li><?php the_category('</li><li>') ?></li>
 				</ul>
 			</li>
+                     <?php if (get_the_tags()) : ?>
 			<li class="entry-tags">
 				<h3><?php _e('Tags', 'blogtxt') ?></h3>
 				<ul>
 					<?php the_tags("<li>", "</li><li>", "</li>") ?>
 				</ul>
 			</li>
+                     <?php endif ?>
 		</ul>
 	</div><!-- single.php #primary .sidebar -->
 
