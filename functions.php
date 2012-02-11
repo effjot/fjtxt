@@ -178,7 +178,7 @@ function blogtxt_other_tags($glue) {
 }
 
 // Produces an avatar image with the hCard-compliant photo class
-function blogtxt_commenter_link() {
+function blogtxt_commenter_link($which = "both") {
 	$commenter = get_comment_author_link();
 	if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
 		$commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
@@ -189,7 +189,48 @@ function blogtxt_commenter_link() {
 	$avatar_size = get_option('blogtxt_avatarsize');
 	if ( empty($avatar_size) ) $avatar_size = '16';
 	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "$avatar_size" ) );
-	echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
+
+	if ($which == "commenter") {
+	  echo '<span class="fn n">' . $commenter . '</span>';
+	} else if ($which == "avatar") {
+	  echo $avatar;
+	} else if ($which == "both") {
+	  echo $avatar . ' <span class="fn n">' . $commenter . '</span>';
+	}
+}
+
+// Produces either an commenter link without avatar image or avatar image only
+function blogtxt_commenter_link_avatar($which="commenter") {
+	$commenter = get_comment_author_link();
+	if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
+		$commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
+	} else {
+		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
+	}
+	$email = get_comment_author_email();
+	$avatar_size = get_option('blogtxt_avatarsize');
+	if ( empty($avatar_size) ) $avatar_size = '16';
+	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "$avatar_size" ) );
+	if ($which == "commenter") {
+	  echo '<span class="fn n">' . $commenter . '</span>';
+	} else if ($which == "avatar") {
+	  echo $avatar;
+	}
+}
+
+// Produces an avatar image without the hCard-compliant photo class
+function blogtxt_commenter_link_without_avatar() {
+	$commenter = get_comment_author_link();
+	if ( ereg( '<a[^>]* class=[^>]+>', $commenter ) ) {
+		$commenter = ereg_replace( '(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter );
+	} else {
+		$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
+	}
+	$email = get_comment_author_email();
+	$avatar_size = get_option('blogtxt_avatarsize');
+	if ( empty($avatar_size) ) $avatar_size = '16';
+	$avatar = str_replace( "class='avatar", "class='photo avatar", get_avatar( "$email", "$avatar_size" ) );
+	echo '<span class="fn n">' . $commenter . '</span>';
 }
 
 // Function to filter the default gallery shortcode
@@ -729,13 +770,13 @@ function blogtxt_wp_head() {
 			if ( is_single() || is_page() ) {
 				return '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			} else {
-				echo '<span class="meta-sep">&dagger;</span> <span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
+				echo '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			}
 		} elseif ( get_option('blogtxt_authorlink') =="displayed" ) {
 			if ( is_single() || is_page() ) {
 				return '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			} else {
-				echo '<span class="meta-sep">&dagger;</span> <span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
+				echo '<span class="entry-author author vcard"><a class="url fn" href="' . get_author_link(false, $authordata->ID, $authordata->user_nicename) . '" title="View all posts by ' . $authordata->display_name . '">' . get_the_author() . '</a></span>';
 			}
 		} elseif ( get_option('blogtxt_authorlink') =="hidden" ) {
 			if ( is_single() || is_page() ) {
@@ -785,7 +826,7 @@ function blogtxt_wp_head() {
 		} elseif ( get_option('blogtxt_layoutalignment') =="center" ) {
 			$layoutalignment = 'body div#wrapper{margin:5em auto 0 auto;padding:0 1em;}';
 		} elseif ( get_option('blogtxt_layoutalignment') =="left" ) {
-			$layoutalignment = 'body div#wrapper{margin:5em 0 0 7em;}';
+			$layoutalignment = 'body div#wrapper {margin: 3em 0 0 3em;}';
 		} elseif ( get_option('blogtxt_layoutalignment') =="right" ) {
 			$layoutalignment = 'body div#wrapper{margin:5em 3em 0 auto;}';
 	};
@@ -806,7 +847,7 @@ function blogtxt_wp_head() {
 	div#wrapper{width:<?php echo $layoutwidth; ?>;}
 	div.hfeed .entry-title,div.hfeed .page-title,div.comments h3,div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6,div#header div#blog-description,div#header div.archive-description{font-family:<?php echo $headingfontfamily; ?>;}
 	div#header h1#blog-title,div.sidebar ul li h3{font-family:<?php echo $blogtitlefontfamily; ?>;}
-	body input#s,div.entry-content div.page-link,div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q,div.formcontainer div.form-input input,div.formcontainer div.form-textarea textarea,div.hentry div.entry-meta,div.sidebar{font-family:<?php echo $miscfontfamily; ?>;}
+	body input#s,div.entry-content div.page-link,div.entry-content p.attachment-name,div.entry-content q,div.comments ol.commentlist q,div.formcontainer div.form-input input,div.formcontainer div.form-textarea textarea,div.hentry div.entry-meta, span.comment-meta, span.pingback-meta, div.sidebar, .wp-caption-text {font-family:<?php echo $miscfontfamily; ?>;}
 	div.hfeed div.hentry{text-align:<?php echo $posttextalignment; ?>;}
 	<?php echo $layoutalignment; ?>
 
@@ -826,6 +867,53 @@ add_filter('archive_meta', 'wpautop');
 
 add_filter('post_gallery', 'blogtxt_gallery', $attr);
 
+// Avoid linebreaks in category descriptions.
+remove_filter('term_description','wpautop');
+
+// Turn off automatic curly quotes ("smart quotes")
+remove_filter('the_content', 'wptexturize');
+remove_filter('widget_text', 'wptexturize');
+remove_filter('the_excerpt', 'wptexturize');
+remove_filter('the_rss_content', 'wptexturize');
+remove_filter('the_title', 'wptexturize');
+remove_filter('single_post_title', 'wptexturize');
+remove_filter('comment_text', 'wptexturize');
+remove_filter('comment_author', 'wptexturize');
+remove_filter('list_cats', 'wptexturize');
+remove_filter('category_description', 'wptexturize');
+remove_filter('bloginfo', 'wptexturize');
+
+
+// Display number of comments by user
+function commentCount() {
+  global $wpdb;
+
+  if (get_comment_author_email()) { /* only non-anonymous users */
+    $count = $wpdb->get_var('SELECT COUNT(comment_ID) FROM ' .
+                            $wpdb->comments .
+                            ' WHERE comment_author_email = "' .
+                            get_comment_author_email() . '"');
+    echo '<span class="user-comment-count" title="';
+    printf(__("%d comments by this user", 'blogtxt'), $count);
+    echo '">' . $count . '</span>';
+  }
+}
+
+// "Read more" link at end of excerpt
+function fjtxt_excerpt_more($more) {
+  global $post;
+  return ' <span class="more-link"><a href="' .
+    get_permalink($post->ID) . '">[&hellip;]</a></span>';
+}
+add_filter('excerpt_more', 'fjtxt_excerpt_more');
+
+
+if ( function_exists( 'add_theme_support' ) )
+  add_theme_support( 'post-thumbnails' );
+
 // Readies for translation.
 load_theme_textdomain('blogtxt')
+
+
+
 ?>
