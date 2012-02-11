@@ -1,0 +1,24 @@
+blog.txt
+
+Blog.txt is a theme for WordPress designed to impact your content in
+the most minimal way: using whitespace as a major design element,
+guiding the reader to the content.
+
+Blog.txt version 4.5 is compatible with Wordpress 2.5.x.
+
+The blog.txt theme features:
+
+ * a theme options menu, which allows
+     + control over fonts and text size
+     + control over the the banner design
+     + control over the layout and alignment
+ * standards compliance with
+     + CSS 2.1
+     + hAtom 0.1
+     + hCard
+     + XHTML 1.0 Transitional
+ * option for enabling comments on pages
+ * option for enabling author bylines on pages
+ * a robust stylesheet and separate print stylesheet
+ * highly semantic markup
+ * latest Widgets compatibility
