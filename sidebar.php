@@ -3,7 +3,7 @@
 	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
 	<?php if ( !is_front_page() || is_paged() ) { // Displays a home link everywhere except the home page ?>
 			<li id="home-link">
-				<h3><a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('&laquo; Home', 'blogtxt'); ?></a></h3>
+			<h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
 			</li>
 	<?php } ?>
 
@@ -33,7 +33,7 @@
 	<div id="secondary" class="sidebar">
 		<ul>
 	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(2) ) : // Begin Widgets for Sidebar 2; displays widgets or default contents below ?>
-	<?php if ( is_home() || is_category() || is_tag() ) { // Displays category archives on the home and category pages?>
+	<?php if ( 0==1 && is_home() || is_category() || is_tag() ) { // Displays category archives on the home and category pages?>
 			<li id="categories">
 				<h3><?php _e('Category Archives', 'blogtxt'); ?></h3>
 				<ul>
@@ -83,6 +83,8 @@
 				</ul>
 			</li>
 	<?php } ?>
+
+<!--
 			<li id="search">
 				<h3><label for="s"><?php _e('Search', 'blogtxt') ?></label></h3>
 				<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
@@ -92,6 +94,7 @@
 					</div>
 				</form>
 			</li>
+-->
 	<?php endif; // End Widgets ?>
 
 		</ul>
