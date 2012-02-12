@@ -11,7 +11,9 @@
     <li id="home-link">
       <h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
     </li>
-    <?php endif; ?>
+    <?php
+        endif;
+    ?>
 
     <?php wp_list_pages('title_li=<h3>'.__('Contents', 'blogtxt').'</h3>&sort_column=menu_order' ) ?>
 
