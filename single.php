@@ -30,7 +30,7 @@
 
 	<div id="primary" class="sidebar">
 		<ul>
-			<li id="home-link"><h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
+			<li id="home-link"><h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
 			</li>
 			<li class="entry-meta">
 				<h3><?php _e('About This Post', 'blogtxt') ?></h3>
@@ -81,15 +81,15 @@
 				<h3><?php _e('RSS Feeds', 'blogtxt') ?></h3>
 				<ul>
 					<li><?php comments_rss_link(__('Comments to this post', 'blogtxt')); ?></li>
-					<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'blogtxt') ?></a></li>
-					<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo wp_specialchars(bloginfo('name'), 1) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'blogtxt') ?></a></li>
+					<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'blogtxt') ?></a></li>
+					<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo esc_attr(bloginfo('name')) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'blogtxt') ?></a></li>
 				</ul>
 			</li>
 			<li id="search">
 				<h3><label for="s"><?php _e('Search', 'blogtxt') ?></label></h3>
-				<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
+				<form id="searchform" method="get" action="<?php esc_attr(bloginfo('home')) ?>">
 					<div>
-						<input id="s" name="s" type="text" value="<?php echo wp_specialchars(stripslashes($_GET['s']), true) ?>" size="10" />
+						<input id="s" name="s" type="text" value="<?php echo esc_attr(stripslashes($_GET['s']), true) ?>" size="10" />
 						<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Find', 'blogtxt') ?>" />
 					</div>
 				</form>
