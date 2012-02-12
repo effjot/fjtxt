@@ -3,7 +3,7 @@
 	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar(1) ) : // Begin Widgets for Sidebar 1; displays widgets or default contents below ?>
 	<?php if ( !is_front_page() || is_paged() ) { // Displays a home link everywhere except the home page ?>
 			<li id="home-link">
-			<h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
+			<h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
 			</li>
 	<?php } ?>
 
@@ -49,8 +49,8 @@
 			<li id="rss_links">
 				<h3><?php _e('RSS Feeds', 'blogtxt') ?></h3>
 				<ul>
-					<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo wp_specialchars(get_bloginfo('name'), 1) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'blogtxt') ?></a></li>
-					<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo wp_specialchars(bloginfo('name'), 1) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'blogtxt') ?></a></li>
+					<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'blogtxt') ?></a></li>
+					<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo esc_attr(bloginfo('name')) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'blogtxt') ?></a></li>
 				</ul>
 			</li>
 			<li id="meta">
