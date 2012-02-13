@@ -12,8 +12,8 @@
       <?php
         the_content('<span class="more-link">' .
                     __('Continue Reading', 'blogtxt').' &rang;</span>');
-        link_pages('<div class="page-link">' . __('Pages: ', 'blogtxt'),
-                  "</div>\n", 'number');
+        wp_link_pages('before=<div class="page-link">' . __('Pages: ', 'blogtxt') .
+                   '&after=</div>&next_or_number=number');
       ?>
     </div>
 
@@ -136,7 +136,7 @@
 
       <ul>
 
-        <li><?php comments_rss_link(__('Comments to this post', 'blogtxt')) ?></li>
+        <li><?php post_comments_feed_link(__('Comments to this post', 'blogtxt')) ?></li>
 
         <li>
           <a href="<?php bloginfo('rss2_url') ?>"
@@ -160,7 +160,7 @@
 
     <li id="search">
       <h3><label for="s"><?php _e('Search', 'blogtxt') ?></label></h3>
-      <form id="searchform" method="get" action="<?php bloginfo('home') ?>">
+      <form id="searchform" method="get" action="<?php echo home_url() ?>">
         <div>
           <input id="s" name="s" type="text"
                  value="<?php the_search_query() ?>" size="10" />
