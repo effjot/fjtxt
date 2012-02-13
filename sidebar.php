@@ -9,7 +9,7 @@
           // Displays a home link everywhere except the home page
     ?>
     <li id="home-link">
-      <h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
+      <h3>&lang;&nbsp;<a href="<?php echo home_url() ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
     </li>
     <?php
         endif;
@@ -68,11 +68,13 @@
 	<?php wp_list_categories('title_li=&orderby=name&use_desc_for_title=1&hierarchical=1'); ?>
       </ul>
     </li>
+    <?php if (get_tags()): ?></p>
     <li id="tag-cloud">
       <h3><?php _e('Tag Archives', 'blogtxt'); ?></h3>
       <p><?php wp_tag_cloud() ?></p>
     </li>
-    <?php 
+    <?php endif ?>
+    <?php
         endif;
         if (is_home() || is_page()) :
           // Displays RSS and Meta links on the home and 'page' pages
@@ -82,15 +84,14 @@
       <ul>
         <li>
           <a href="<?php bloginfo('rss2_url') ?>"
-             title="<?php echo esc_attr(get_bloginfo('name')) . _e('RSS 2.0 Feed', 'blogtxt'); ?>"
+             title="<?php echo esc_attr(get_bloginfo('name') . ' ' . __('RSS 2.0 Feed', 'blogtxt')) ?>"
              rel="alternate" type="application/rss+xml">
             <?php _e('All posts', 'blogtxt') ?>
           </a>
         </li>
         <li>
           <a href="<?php bloginfo('comments_rss2_url') ?>"
-             title="<?php echo esc_attr(get_bloginfo('name')) .
-                                 _e('Comments RSS 2.0 Feed', 'blogtxt'); ?>"
+             title="<?php echo esc_attr(get_bloginfo('name') . ' ' . __('Comments RSS 2.0 Feed', 'blogtxt')) ?>"
              rel="alternate" type="application/rss+xml">
             <?php _e('All comments', 'blogtxt') ?>
           </a>
@@ -143,7 +144,7 @@
 
     <li id="search">
       <h3><label for="s"><?php _e('Search', 'blogtxt') ?></label></h3>
-      <form id="searchform" method="get" action="<?php bloginfo('home') ?>">
+      <form id="searchform" method="get" action="<?php echo home_url() ?>">
         <div>
           <input id="s" name="s" type="text"
                  value="<?php the_search_query() ?>" size="10" />
