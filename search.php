@@ -95,7 +95,7 @@
       <p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'blogtxt') ?></p>
     </div>
 
-    <form id="noresults-searchform" method="get" action="<?php bloginfo('home') ?>">
+    <form id="noresults-searchform" method="get" action="<?php echo home_url() ?>">
       <div>
         <input id="noresults-s" name="s" type="text" value="<?php the_search_query() ?>" size="40" />
         <input id="noresults-searchsubmit" name="searchsubmit" type="submit"
