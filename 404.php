@@ -1,4 +1,5 @@
-<?php header("HTTP/1.1 404 Not Found"); ?>
+<?php header("HTTP/1.1 404 Not Found") ?>
+
 <?php get_header() ?>
 
 <div class="hfeed">
@@ -8,11 +9,13 @@
     <h3 class="entry-title"><?php _e("Nothing Found", "blogtxt") ?></h3>
 
     <div class="entry-content">
-      <p><?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'blogtxt') ?></p>
+      <p>
+        <?php _e('Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'blogtxt') ?>
+      </p>
     </div>
 
     <form id="error404-searchform" method="get"
-          action="<?php bloginfo('home') ?>">
+          action="<?php echo home_url() ?>">
       <div>
         <input id="error404-s" name="s" type="text"
                value="<?php the_search_query() ?>" size="40" />
