@@ -42,8 +42,8 @@ Template Name: Sitemap Page
             ?>
             <li class="hentry">
               <span class="entry-title">
-                <a href="<?php the_permalink() ?>" title="<?php echo esc_attr(printf(__( 'Permalink to %s', 'blogtxt' ), get_the_title())) ?>" rel="bookmark">
-                  <?php the_title(); ?>
+                <a href="<?php the_permalink() ?>" title="<?php printf(__('Permalink to %s', 'blogtxt'), esc_attr(get_the_title())) ?>" rel="bookmark">
+                  <?php the_title() ?>
                 </a>
               </span>
             </li>
