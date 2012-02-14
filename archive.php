@@ -65,7 +65,7 @@
     <h2 class="page-title">
       <?php _e('Archives', 'blogtxt') ?>
       <?php printf(__('%1$s Archives', 'blogtxt'),
-                   wp_specialchars(get_the_title(), 'double')) ?>
+                   esc_html(get_the_title())) ?>
     </h2>
 
   <?php endif; ?>
@@ -78,7 +78,7 @@
       <h3 class="entry-title">
         <a href="<?php the_permalink() ?>"
            title="<?php printf(__('Permalink to %s', 'blogtxt'),
-                               wp_specialchars(get_the_title(), 1)) ?>"
+                               esc_attr(get_the_title())) ?>"
            rel="bookmark">
           <?php the_title() ?>
         </a>
