@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes() ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes('xhtml') ?>>
   <head profile="http://gmpg.org/xfn/11">
     <title>
       <?php bloginfo('name') ?>
@@ -8,15 +8,17 @@
       <?php elseif (is_category()) : ?> - <?php echo single_cat_title(); ?>
       <?php elseif (is_date()) : ?> - <?php _e('Blog archives', 'blogtxt') ?>
       <?php elseif (is_search()) : ?> - <?php _e('Search results', 'blogtxt') ?>
-      <?php else : ?> - <?php the_title() ?><?php endif; ?>
+      <?php else : ?> - <?php the_title() ?>
+      <?php endif ?>
     </title>
-    <meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>"; charset="<?php bloginfo('charset') ?>" />
+    <meta http-equiv="content-type" content="<?php echo (get_bloginfo('html_type') .
+      '; charset=' . get_bloginfo('charset')) ?>" />
     <link rel="icon" href="/img/favicon.png" type="image/png" />
     <link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('stylesheet_url'); ?>" title="fj.txt" />
     <link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('template_directory'); ?>/custom.css" />
     <link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css" />
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url') ?>" title="<?php bloginfo('name') ?> <?php _e('RSS feed', 'blogtxt' ) ?>" />
-    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php bloginfo('name') ?> <?php _e( 'comments RSS feed', 'blogtxt' ) ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url') ?>" title="<?php bloginfo('name') ?> <?php _e('RSS feed', 'blogtxt') ?>" />
+    <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php bloginfo('name') ?> <?php _e('comments RSS feed', 'blogtxt') ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
 
     <link rel="openid.server"
@@ -68,7 +70,7 @@
           <?php elseif (is_author()) : ?>
             <div class="archive-description">
               <?php _e('You are currently viewing the author archives of ', 'blogtxt') ?>
-              <?php the_author(); ?>
+              <?php the_author() ?>
             </div>
           <?php elseif (is_category()) : ?>
             <div class="archive-description">
@@ -84,7 +86,7 @@
             </div>
           <?php else : ?>
             <div id="blog-description"><?php bloginfo('description') ?></div>
-          <?php endif; ?>
+          <?php endif ?>
 
           <?php rewind_posts() ?>
 
