@@ -1,6 +1,6 @@
 <div class="comments">
 <?php
-	$req = get_settings('require_name_email'); // Checks if fields are required
+	$req = get_option('require_name_email'); // Checks if fields are required
 	if ( 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']) )
 		die ( 'Please do not load this page directly. Thanks!' );
 	if ( ! empty($post->post_password) ) :
@@ -90,7 +90,7 @@ foreach ( $comments as $comment )
 
 			<p id="loggedin"><?php printf(__('Logged in as <a href="%1$s" title="View your profile" class="fn">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'blogtxt'),
 					get_option('siteurl') . '/wp-admin/profile.php',
-					wp_specialchars($user_identity, true),
+                                        esc_html($user_identity),
 					get_option('siteurl') . '/wp-login.php?action=logout&amp;redirect_to=' . get_permalink() ) ?></p>
 
 <?php else : ?>
