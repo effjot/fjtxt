@@ -30,7 +30,7 @@
 	<div id="primary" class="sidebar">
 		<ul>
 			<li id="home-link">
-	  <h3>&lang;&nbsp;<a href="<?php bloginfo('home') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
+	  <h3>&lang;&nbsp;<a href="<?php echo home_url() ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?>"><?php _e('Home', 'blogtxt'); ?></a></h3>
 			</li>
 			<li class="entry-meta">
 				<h3><?php _e('About This Post', 'blogtxt') ?></h3>
