@@ -66,14 +66,14 @@
 			<li id="rss-links">
 				<h3><?php _e('RSS Feeds', 'blogtxt') ?></h3>
 				<ul>
-					<li><?php comments_rss_link(__('Comments to this post', 'blogtxt')); ?></li>
+					<li><?php post_comments_feed_link(__('Comments to this post', 'blogtxt')) ?></li>
 					<li><a href="<?php bloginfo('rss2_url') ?>" title="<?php echo esc_attr(get_bloginfo('name')) ?> RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All posts', 'blogtxt') ?></a></li>
 					<li><a href="<?php bloginfo('comments_rss2_url') ?>" title="<?php echo esc_attr(bloginfo('name')) ?> Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml"><?php _e('All comments', 'blogtxt') ?></a></li>
 				</ul>
 			</li>
 			<li id="search">
 				<h3><label for="s"><?php _e('Search', 'blogtxt') ?></label></h3>
-				<form id="searchform" method="get" action="<?php bloginfo('home') ?>">
+				<form id="searchform" method="get" action="<?php echo home_url() ?>">
 					<div>
 						<input id="s" name="s" type="text" value="<?php echo esc_attr(stripslashes($_GET['s'])) ?>" size="10" />
 						<input id="searchsubmit" name="searchsubmit" type="submit" value="<?php _e('Find', 'blogtxt') ?>" />
