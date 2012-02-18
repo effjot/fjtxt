@@ -18,7 +18,7 @@
 
       <?php the_content() ?>
 
-      <?php 
+      <?php
         wp_link_pages('before=<div class="page-link">' . __('Pages: ', 'blogtxt') .
                       '&after=</div>&next_or_number=number');
 
@@ -29,9 +29,10 @@
 
   </div>
 
-  <?php 
-    if (get_post_custom_values('comments')) comments_template()
-      // Add a key/value of "comments" to load comments on a page
+  <?php
+    if (get_post_custom_values('comments'))
+      comments_template()
+        // Add a key/value of "comments" to load comments on a page
   ?>
 
 </div>
