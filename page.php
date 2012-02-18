@@ -10,7 +10,9 @@
 					<div class="entry-content">
 <?php the_content() ?>
 
-<?php link_pages('<div class="page-link">'.__('Pages: ', 'blogtxt'), '</div>', 'number'); ?>
+<?php wp_link_pages('before=<div class="page-link">' . __('Pages: ', 'blogtxt') .
+                      '&after=</div>&next_or_number=number');
+ ?>
 
 <?php edit_post_link(__('Edit this entry.', 'blogtxt'),'<p class="entry-edit">','</p>') ?>
 
