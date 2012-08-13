@@ -539,7 +539,7 @@ function widget_blogtxt_recent_comments_control() {
            type="text" value="<?php echo $rc_count; ?>" />
   </label>
   <br />
-  <small><?php _e('(at most 15)') ?></small>
+  <small><?php _e('(at most 15)', 'blogtxt') ?></small>
 </p>
 <input type="hidden" id="rc-submit" name="rc-submit" value="1" />
 <?php
@@ -576,7 +576,8 @@ function blogtxt_widgets_init() {
   wp_register_sidebar_widget('meta', __('Meta', 'blogtxt'),
                              'widget_blogtxt_meta', $widget_ops);
   wp_unregister_widget_control('meta');
-  wp_register_widget_control('meta', __('Meta'), 'wp_widget_meta_control');
+  wp_register_widget_control('meta', __('Meta', 'blogtxt'),
+                             'wp_widget_meta_control');
 
   // blog.txt Home Link widget
   $widget_ops = array(
