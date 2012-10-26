@@ -1144,7 +1144,7 @@ function blogtxt_wp_head() {
   };
 
 ?>
-<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('template_directory'); ?>/layouts/<?php echo $layouttype; ?>" />
+<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo get_stylesheet_directory_uri(); ?>/layouts/<?php echo $layouttype; ?>" />
 
 <style type="text/css" media="screen,projection">
 /*<![CDATA[*/
