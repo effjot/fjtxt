@@ -13,7 +13,7 @@
         the_content('<span class="more-link">' .
                     __('Continue Reading', 'blogtxt').' &rang;</span>');
         wp_link_pages('before=<div class="page-link">' . __('Pages: ', 'blogtxt') .
-                   '&after=</div>&next_or_number=number');
+                      '&after=</div>&next_or_number=number');
       ?>
     </div>
 
@@ -49,8 +49,8 @@
     <li class="entry-meta">
       <h3><?php _e('About This Post', 'blogtxt') ?></h3>
       <ul>
-        <li><?php printf(__('Written by %s', 'blogtxt'), blogtxt_author_link() ) ?></li>
-        <li><?php printf(__('<abbr class="published" title="%1$sT%2$s">%3$s at %4$s</abbr>', 'blogtxt'), get_the_time('Y-m-d'), get_the_time('H:i:sO'), get_the_time('j. F Y'), get_the_time() ) ?></li>
+        <li><?php printf(__('Written by %s', 'blogtxt'), blogtxt_author_link()) ?></li>
+        <li><?php printf(__('<abbr class="published" title="%1$sT%2$s">%3$s at %4$s</abbr>', 'blogtxt'), get_the_time('Y-m-d'), get_the_time('H:i:sO'), get_the_time('j. F Y'), get_the_time()) ?></li>
         <?php edit_post_link(__('Edit this entry', 'blogtxt'),'<li class="entry-edit">','</li>') ?>
       </ul>
     </li>
@@ -91,7 +91,7 @@
           <?php _e('<a href="#respond" title="Post a comment">Post a comment</a>', 'blogtxt') ?>
         </li>
         <li class="trackback-link">
-          <?php printf(__('<a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a>', 'blogtxt'), get_trackback_url() ) ?>
+          <?php printf(__('<a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a>', 'blogtxt'), get_trackback_url()) ?>
         </li>
 
         <?php
@@ -101,7 +101,7 @@
           <?php _e('Comments closed', 'blogtxt') ?>
         </li>
         <li class="trackback-link">
-          <?php printf(__('<a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a>', 'blogtxt'), get_trackback_url() ) ?>
+          <?php printf(__('<a href="%s" rel="trackback" title="Trackback URL for your post">Trackback URI</a>', 'blogtxt'), get_trackback_url()) ?>
         </li>
 
         <?php
