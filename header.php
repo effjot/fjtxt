@@ -15,8 +15,8 @@
       '; charset=' . get_bloginfo('charset')) ?>" />
     <link rel="icon" href="/img/favicon.png" type="image/png" />
     <link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('stylesheet_url'); ?>" title="fj.txt" />
-    <link rel="stylesheet" type="text/css" media="screen,projection" href="<?php bloginfo('template_directory'); ?>/custom.css" />
-    <link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo get_stylesheet_directory_uri(); ?>/custom.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="<?php echo get_stylesheet_directory_uri(); ?>/print.css" />
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('rss2_url') ?>" title="<?php bloginfo('name') ?> <?php _e('RSS feed', 'blogtxt') ?>" />
     <link rel="alternate" type="application/rss+xml" href="<?php bloginfo('comments_rss2_url') ?>" title="<?php bloginfo('name') ?> <?php _e('comments RSS feed', 'blogtxt') ?>" />
     <link rel="pingback" href="<?php bloginfo('pingback_url') ?>" />
