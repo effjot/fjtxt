@@ -290,7 +290,7 @@ function blogtxt_gallery($attr) {
     return $output;
   }
 
-  $listtag     =  tag_escape($listtag);
+  //FIXME: NOT USED? $listtag     =  tag_escape($listtag);
   $itemtag     =  tag_escape($itemtag);
   $captiontag  =  tag_escape($captiontag);
   $columns     =  intval($columns);
@@ -299,6 +299,7 @@ function blogtxt_gallery($attr) {
   $output = apply_filters('gallery_style', "\n" . '<div class="gallery">', 9);
     // Available filter: gallery_style
 
+  $i = 0;
   foreach ($attachments as $id => $attachment) {
     $img_lnk = get_attachment_link($id);
     $img_src = wp_get_attachment_image_src($id, $size);
@@ -1182,7 +1183,7 @@ add_filter('archive_meta', 'convert_smilies');
 add_filter('archive_meta', 'convert_chars');
 add_filter('archive_meta', 'wpautop');
 
-add_filter('post_gallery', 'blogtxt_gallery', $attr);
+add_filter('post_gallery', 'blogtxt_gallery');
 
 // Avoid linebreaks in category descriptions.
 remove_filter('term_description','wpautop');
