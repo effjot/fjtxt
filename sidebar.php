@@ -15,7 +15,7 @@
         endif;
     ?>
 
-    <?php wp_list_pages('title_li=<h3>'.__('Contents', 'blogtxt').'</h3>&sort_column=menu_order' ) ?>
+    <?php wp_list_pages('title_li=<h3>'.__('Contents', 'blogtxt').'</h3>&sort_column=menu_order') ?>
 
     <?php
         if (is_home()) :
@@ -34,7 +34,7 @@
                       '<a href="'. get_permalink($comment->comment_post_ID) . '#comment-' . $comment->comment_ID . '" title="' . $comment->comment_author . ' on ' . get_the_title($comment->comment_post_ID) . '"><span class="fn n">' . $comment->comment_author . '</span></a>',
                       get_the_title($comment->comment_post_ID),
                       get_permalink($comment->comment_post_ID),
-                      strip_tags($comment->comment_excerpt) ) . '</li>';
+                      strip_tags($comment->comment_excerpt)) . '</li>';
             }
       ?>
       </ul>
