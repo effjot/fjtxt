@@ -44,7 +44,7 @@
             ?>
 
             <h1 id="blog-title">
-              <a href="<?php bloginfo('url') ?>" title="<?php bloginfo('name') ?>">
+              <a href="<?php echo home_url() ?>" title="<?php bloginfo('name') ?>">
                 <?php bloginfo('name') ?>
               </a>
             </h1>
