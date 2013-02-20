@@ -1,0 +1,5 @@
+* Update i18n / l10n: change textdomain; check translations
+
+* Date/time formats: don't hard-code, use options or localised defaults
+
+* Use current Wordpress infrastructure for themes (theme_support, theme_features)
