@@ -39,9 +39,11 @@ div#header div#blog-description, div#header div.archive-description{font-size:1.
 h1#blog-title { font-weight: normal; font-size: 4em; letter-spacing: 2px;
                 line-height:100%;
                 position: absolute; bottom: 0px;
-                margin-left: 0.2em; margin-bottom: 0.1em; }
-div#blog-title-container { height: 140px;
-                           background-image: url(images/title-image.jpg);
+                margin-left: 0.2em; /*margin-bottom: 0.1em; */
+              margin-bottom: 0.2em; }
+div#blog-title-container { height: 72px;
+    /* height: 140px;
+                           background-image: url(images/title-image.jpg); */
                            background-repeat: no-repeat;
                            border-bottom: 8px solid #ccd0d6;
                            position: relative;}
@@ -87,9 +89,9 @@ div.entry-content del,div.comments ol.commentlist del{background:#ebedef;color:#
 div.entry-content div.page-link{font-size:0.9em;font-weight:700;margin:0 0 1.5em;text-align:center;}
 div.entry-content h2,div.entry-content h3{font-size:1.5em;margin:1.5em 0 -0.3em;}
 div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-weight:400;}
-div.entry-content h4{font-size:1.4em;margin:1.5em 0 -0.3em;}
-div.entry-content h5{font-size:1.3em;margin:1.5em 0 -0.4em;}
-div.entry-content h6{font-size:1.2em;margin:1.5em 0 -0.5em;}
+div.entry-content h4{font-size:1.3em;margin:1.5em 0 -0.3em;}
+div.entry-content h5{font-size:1.2em;margin:1.5em 0 -0.4em;}
+div.entry-content h6{font-size:1.1em;margin:1.5em 0 -0.5em;}
 /* div.entry-content img.center,div.entry-content img.alignright,div.entry-content img.alignleft{border:1px solid #9aa1ae;} */
 div.entry-content img.center,div.entry-content img.alignright,div.entry-content img.alignleft{border: none;}
 div.entry-content ins, div.comments ol.commentlist ins {background:#f5f5dc; text-decoration: none;}
@@ -136,7 +138,7 @@ div.formcontainer,p#mustlogin{margin:0 0 1em 1.5em;}
 div.hentry div.archive-meta{font-style:italic;margin:0.5em 0 2em 2em;}
 div.hentry div.entry-meta{background:#f6f7f8;border-bottom:1px solid #ccd0d6;border-top:1px solid #ccd0d6;color:#677284;font-size:80%;margin:1em 0 5em;padding:0.2em 0.5em;text-align:center;clear:both;}
 /* div.hentry div.entry-meta span.meta-sep{padding:0 0 0 0.3em;} */
-div.hfeed .entry-title{font-size:1.6em;font-weight:400;line-height:133%;margin:0 0 -0.3em;text-align: left;}
+div.hfeed .entry-title{font-size:1.8em;font-weight:400;line-height:133%;margin:0 0 -0.3em;text-align: left;}
 div.hfeed .page-title{color:#4d5663;font-size:1.7em;font-weight:400;line-height:133%;margin:2em 0 0;}
 div.hfeed .page-title span.page-subtitle{color:#7a818a;font-size:0.8em;padding-left:0.2em;}
 div.hfeed div#post-0 input#s{width:50%;}
