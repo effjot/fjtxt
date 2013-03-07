@@ -7,46 +7,85 @@ AUTHOR: Florian Jenn
 AUTHOR URI: http://www.effjot.net/
 TAGS: variable width, fixed width, variable columns, two columns, three columns, widgets, theme options, options page, white, gray, typography, microformats, hatom, hcard, german, deutsch
 */
-a, a:link {outline: none; text-decoration: none;}
-/* div#header a,div#header a:link{color:#83bbdd;} */
-/* div#header a,div#header a:link{color:#0d1117;} */
-div#header a,div#header a:link{color: rgb(192, 132, 86);}
-div.hfeed a,div.hfeed a:link,div.entry-content ul.xoxo li.hentry span a,div.entry-content ul.xoxo li.hentry span a:link { border-bottom:1px solid #9aa1ae; color:#34425b; } /* Standard-Link */
-div.hfeed .entry-title a,div.hfeed .entry-title a:link,div.hfeed div.entry-meta a,div.hfeed div.entry-meta a:link{border-bottom:none;}
-div.hfeed div.navigation a {border: none;}
-div.sidebar a,div.sidebar a:link{background:#fff;border-bottom:1px solid #ccd0d6;color:#34425b;}
+
+
+/*** Links ***/
+
+a, a:link { outline: none; text-decoration: none; }
+
+/* hfeed = main content (not header, not sidebar */
+div.hfeed a, div.hfeed a:link, div.entry-content ul.xoxo li.hentry span a,
+  div.entry-content ul.xoxo li.hentry span a:link {
+    border-bottom: 1px solid #9aa1ae; color:#34425b; }
+div.hfeed .entry-title a, div.hfeed .entry-title a:link, div.hfeed div.entry-meta a,
+  div.hfeed div.entry-meta a:link { border-bottom: none; }
+div.hfeed div.navigation a { border: none; }
+div.hfeed a:visited, div.entry-content ul.xoxo li.hentry span a:visited { color: #677284; }
+div.hfeed .entry-title a:visited { color:#34425b; }
+
+/* header, footer */
+div#header a, div#header a:link { color: rgb(192, 132, 86); }
+div#footer a, div#footer a:link { color: #9aa1ae; border-bottom: 1px solid #ccd0d6; }
+
+/* sidebar */
+div.sidebar a, div.sidebar a:link {
+    color: #34425b; background: white; border-bottom: 1px solid #ccd0d6; }
 div.sidebar li#home-link a { border: none; }
-div.sidebar li#home-link h3 { margin-left: 0; padding-left: 0; }
-div#footer a,div#footer a:link{border-bottom: 1px solid #ccd0d6;color: #9aa1ae;}
-div.hfeed a:visited,div.entry-content ul.xoxo li.hentry span a:visited{color:#677284;}
-div.hfeed .entry-title a:visited{color:#34425b;}
-div#header a:hover{color:#9aa1ae;}
-div#footer a:hover{border-bottom: 1px solid #34425b;color: #34425b;}
-div.hfeed a:hover,div.hfeed .entry-title a:hover,div.hfeed div.entry-meta a:hover,div.sidebar a:hover,div.entry-content ul.xoxo li.hentry span a:hover{border-bottom:1px solid #0d1117;color:#0d1117;}
-div.hfeed a:active,div.sidebar a:active{color:#677284;border-bottom:1px solid #b4b9c3;}
-body{background:#fff;color:black;line-height:150%;margin:0 0 2em;padding:0;}
-body abbr.published,body abbr.comment-published{border:none;}
-body img{border:none;max-width:99%;}
-body input#s{background:#f6f6f7;border:1px solid #9ca1a8;font-size:1em;line-height:normal;padding:0.3em 0.2em;}
-body.author div.hfeed div.archive-meta p{color:#555;font-size:0.9em;margin:0;}
-body.single div.navigation{margin:4em 0 0;}
-div#footer{color:#9aa1ae;font-size:80%;padding:3em 0 0;}
-/* div#globalnav,div.access,div#footer span#theme-link span.additional-name,div#footer span#theme-link span.family-name{display:none;} */
-div#globalnav,div.access,div#footer span#theme-link span.additional-name {display:none;}
-div#header a{text-decoration:none;}
-div#header div#blog-description, div#header div.archive-description{font-size:1.1em;line-height:133%;}
+/* TODO: einsortieren! */ div.sidebar li#home-link h3 { margin-left: 0; padding-left: 0; }
+
+/* hover+active links */
+div.hfeed a:hover, div.hfeed .entry-title a:hover, div.hfeed div.entry-meta a:hover,
+  div.entry-content ul.xoxo li.hentry span a:hover, div.sidebar a:hover {
+    color: #0d1117; border-bottom: 1px solid #0d1117; }
+div.hfeed a:active, div.sidebar a:active {
+    color: #677284; border-bottom: 1px solid #b4b9c3; }
+div#header a:hover { color: #9aa1ae; }
+div#footer a:hover { color: #34425b; border-bottom: 1px solid #34425b; }
+
+
+
+/*** Text in general ***/
+
+body { background: white; color:black; line-height: 150%;
+       margin: 0 0 2em; padding: 0; }
+
+body img { border: none; max-width: 99%; }
+
+body abbr.published, body abbr.comment-published { border: none; }
+
+body input#s { background: #f6f6f7; border: 1px solid #9ca1a8;
+               font-size: 1em; line-height: normal; padding: 0.3em 0.2em; }
+
+body.author div.hfeed div.archive-meta p { color: #555; font-size: 0.9em; margin: 0;}
+
+body.single div.navigation { margin: 4em 0 0;}
+
+div#globalnav,div.access, /* TODO: necessary? */
+  div#footer span#theme-link span.additional-name { display: none; }
+
+div#header div#blog-description, div#header div.archive-description {
+    font-size: 1.1em; line-height: 133%; }
+div#footer { color: #9aa1ae; font-size: 80%; padding: 3em 0 0;}
+
+
+
+/*** Title ***/
 
 h1#blog-title { font-weight: normal; font-size: 4em; letter-spacing: 2px;
                 line-height:100%;
                 position: absolute; bottom: 0px;
                 margin-left: 0.2em; /*margin-bottom: 0.1em; */
-              margin-bottom: 0.2em; }
+                margin-bottom: 0.2em; }
 div#blog-title-container { height: 72px;
     /* height: 140px;
                            background-image: url(images/title-image.jpg); */
                            background-repeat: no-repeat;
                            border-bottom: 8px solid #ccd0d6;
                            position: relative;}
+
+
+
+
 img#about-widget-image { margin-bottom: 8px; }
 
 div#wrapper .important{background:#f5f5dc url(images/important.png) no-repeat 0.5em center;border-bottom:1px solid #d0d0bb;border-top:1px solid #d0d0bb;padding:0.3em 0.5em 0.3em 2.3em;}
