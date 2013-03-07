@@ -1,3 +1,5 @@
+* style.css: clean up code; find a way for managing color palette (LESS-CSS, SASS, etc. preprocessors?)
+
 * Update i18n / l10n: change textdomain; check translations
 
 * Date/time formats: don't hard-code, use options or localised defaults
