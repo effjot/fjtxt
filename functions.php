@@ -202,7 +202,7 @@ function blogtxt_other_tags($glue) {
 function blogtxt_commenter_link($which = "both") {
   $commenter = get_comment_author_link();
   if (ereg('<a[^>]* class=[^>]+>', $commenter)) {
-    $commenter = ereg_replace('(<a[^>]* class=[\'"]?>', '\\1url ' , $commenter);
+    $commenter = ereg_replace('(<a[^>]* class=[\'"]?)', '\\1url ' , $commenter);
   } else {
     $commenter = ereg_replace('(<a )/', '\\1class="url "' , $commenter);
   }
